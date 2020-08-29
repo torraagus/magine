@@ -1,6 +1,7 @@
 import fetch from "isomorphic-fetch";
 
-const apiKey = "986ff47b5082746e703a6f7cb592b5b7";
+const apiKey = process.env.TMDB_API_KEY;
+
 export const fetchMovies = () => {
 	let urls = [
 		`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`,
