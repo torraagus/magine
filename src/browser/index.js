@@ -1,11 +1,12 @@
 import React from "react";
 import { hydrate } from "react-dom";
 import App from "../shared/App";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./index.scss";
 
 hydrate(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById("app")
+	<Router>
+		<App />
+	</Router>,
+	document.getElementById("app")
 );
