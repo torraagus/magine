@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import {
 	Category,
@@ -16,14 +16,7 @@ import {
 } from "./home.styles";
 import { useFetch } from "../../../browser/hooks/useFetch";
 
-const Home = ({ location, fetchInitialData, history }) => {
-	// const [movies, setMovies] = useState([]);
-	const categories = [
-		{ title: "Now playing", path: "/now-playing" },
-		{ title: "Popular", path: "/popular" },
-		{ title: "Top rated", path: "/top-rated" },
-		{ title: "Upcoming", path: "/upcoming" },
-	];
+const Home = ({ location, fetchInitialData, history, categories }) => {
 	const { movies, loading } = useFetch(
 		location.pathname,
 		fetchInitialData,
@@ -40,7 +33,6 @@ const Home = ({ location, fetchInitialData, history }) => {
 		return (
 			<Wrapper>
 				<Title>Movies</Title>
-				{movies && console.log(movies[0])}
 				{categories.map((category, index) => (
 					<Fragment key={category.title}>
 						<Category>
