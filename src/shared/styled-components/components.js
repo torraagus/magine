@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TiArrowBack } from "react-icons/ti";
 import { colors } from "../../browser/styles/colors";
 
 export const PrimaryBtnSC = styled.button`
@@ -83,4 +84,14 @@ export const ReleaseDateSC = styled.p`
 
 export const ReleaseDateTextSC = styled.small`
 	font-weight: 300;
+`;
+
+export const BackButton = styled(TiArrowBack)`
+	font-size: 36px;
+	opacity: 50%;
+
+	:hover {
+		cursor: pointer;
+		opacity: 100%;
+	}
 `;
