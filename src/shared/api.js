@@ -64,3 +64,14 @@ export const fetchUpcomingMovies = (page) => {
 			return null;
 		});
 };
+
+export const fetchMovieById = (movieId) => {
+	let url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
+
+	return fetch(url)
+		.then((res) => res.json())
+		.catch((err) => {
+			console.warn(err);
+			return null;
+		});
+}
