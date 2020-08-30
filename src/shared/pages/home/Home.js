@@ -17,14 +17,14 @@ import {
 import { useFetch } from "../../../browser/hooks/useFetch";
 
 const Home = ({ location, fetchInitialData, history, categories }) => {
-	const { movies, loading } = useFetch(
+	const { results: movies, loading } = useFetch(
 		location.pathname,
 		fetchInitialData,
-		true
+		false
 	);
 
 	const handleClick = (path) => {
-		history.push(`${path}/1`);
+		history.push(path);
 	};
 
 	if (loading) {
@@ -37,14 +37,17 @@ const Home = ({ location, fetchInitialData, history, categories }) => {
 					<Fragment key={category.title}>
 						<Category>
 							<CategoryTitle>{category.title}</CategoryTitle>
-							<SeeAllBtn onClick={() => handleClick(category.path)}>
+							<SeeAllBtn onClick={() => handleClick(`${category.path}/1`)}>
 								See all
 							</SeeAllBtn>
 						</Category>
 						<Movies>
 							{movies &&
 								movies[index]?.map((movie) => (
-									<Movie key={movie.id}>
+									<Movie
+										key={movie.id}
+										onClick={() => handleClick(`/movies/id/${movie.id}`)}
+									>
 										<Image
 											src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 										/>
