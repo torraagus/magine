@@ -8,19 +8,19 @@ import {
 	Title,
 	Wrapper,
 	Category,
-	BackButton,
 	VoteAverage,
 	ReleaseDate,
 	ReleaseDateText,
 } from "./categories.styles";
+import { BackButton } from "../../styled-components/components";
 import { useFetch } from "../../../browser/hooks/useFetch";
 import Pagination from "../../components/pagination/Pagination";
 
 const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
-	const { movies, page, totalPages, loading } = useFetch(
+	const { results: movies, page, totalPages, loading } = useFetch(
 		location.pathname,
 		fetchInitialData,
-		false
+		true
 	);
 
 	const handleOnPageChange = (page) => {
@@ -48,7 +48,10 @@ const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
 			{!loading && (
 				<Movies>
 					{movies?.map((movie) => (
-						<Movie key={movie.id}>
+						<Movie
+							key={movie.id}
+							onClick={() => history.push(`/movies/id/${movie.id}`)}
+						>
 							<Image
 								src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 							/>
