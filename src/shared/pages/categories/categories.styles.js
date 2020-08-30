@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { TiArrowBack } from "react-icons/ti";
 
 import {
 	MovieTitleSC,
@@ -49,15 +48,7 @@ export const Pages = styled.p`
 	font-weight: 500;
 	margin-top: 0.5rem;
 `;
-export const BackButton = styled(TiArrowBack)`
-	font-size: 36px;
-	opacity: 50%;
 
-	:hover {
-		cursor: pointer;
-		opacity: 100%;
-	}
-`;
 export const VoteAverage = styled(VoteAverageSC)``;
 export const ReleaseDate = styled(ReleaseDateSC)``;
 export const ReleaseDateText = styled(ReleaseDateTextSC)``;
