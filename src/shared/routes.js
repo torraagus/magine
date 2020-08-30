@@ -5,8 +5,10 @@ import {
 	fetchPopularMovies,
 	fetchTopRatedMovies,
 	fetchUpcomingMovies,
+	fetchMovieById
 } from "./api";
 import Categories from "./pages/categories/Categories";
+import SelectedMovie from "./pages/selectedMovie/SelectedMovie";
 
 const routes = [
 	{
@@ -14,10 +16,10 @@ const routes = [
 		exact: true,
 		component: Home,
 		categories: [
-			{ title: "Now playing", path: "/now-playing" },
-			{ title: "Popular", path: "/popular" },
-			{ title: "Top rated", path: "/top-rated" },
-			{ title: "Upcoming", path: "/upcoming" },
+			{ title: "Now playing", path: "/now-playing/page" },
+			{ title: "Popular", path: "/popular/page" },
+			{ title: "Top rated", path: "/top-rated/page" },
+			{ title: "Upcoming", path: "/upcoming/page" },
 		],
 		fetchInitialData: () => fetchMovies(),
 	},
@@ -48,6 +50,12 @@ const routes = [
 		component: Categories,
 		name: "Upcoming",
 		fetchInitialData: (page) => fetchUpcomingMovies(page),
+	},
+	{
+		path: "/movies/id/:id",
+		basePath: "/movies/id",
+		component: SelectedMovie,
+		fetchInitialData: (id) => fetchMovieById(id),
 	},
 ];
 
