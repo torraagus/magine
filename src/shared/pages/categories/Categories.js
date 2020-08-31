@@ -17,11 +17,7 @@ import { useFetch } from "../../../browser/hooks/useFetch";
 import Pagination from "../../components/pagination/Pagination";
 
 const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
-	const { results: movies, page, totalPages, loading } = useFetch(
-		location.pathname,
-		fetchInitialData,
-		true
-	);
+	const { results: movies, page, totalPages, loading } = useFetch(location.pathname, fetchInitialData, true);
 
 	const handleOnPageChange = (page) => {
 		history.push(`${basePath}/${page}`);
@@ -29,7 +25,7 @@ const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
 
 	return (
 		<Wrapper>
-			<BackButton size={36} onClick={() => history.push("/")}></BackButton>
+			{/* <BackButton size={36} onClick={() => history.push("/")}></BackButton> */}
 			<Category>
 				<Name>{name}</Name>
 				{page && (
@@ -39,22 +35,12 @@ const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
 				)}
 			</Category>
 			{loading && <Pages>Loading...</Pages>}
-			<Pagination
-				upper
-				page={page}
-				totalPages={totalPages}
-				onPageChange={handleOnPageChange}
-			/>
+			<Pagination upper page={page} totalPages={totalPages} onPageChange={handleOnPageChange} />
 			{!loading && (
 				<Movies>
 					{movies?.map((movie) => (
-						<Movie
-							key={movie.id}
-							onClick={() => history.push(`/movies/id/${movie.id}`)}
-						>
-							<Image
-								src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-							/>
+						<Movie key={movie.id} onClick={() => history.push(`/movies/id/${movie.id}`)}>
+							<Image src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
 							<Title>{movie.title}</Title>
 							<VoteAverage>{movie.vote_average}</VoteAverage>
 							<ReleaseDate>{movie.release_date}</ReleaseDate>
@@ -63,11 +49,7 @@ const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
 					))}
 				</Movies>
 			)}
-			<Pagination
-				page={page}
-				totalPages={totalPages}
-				onPageChange={handleOnPageChange}
-			/>
+			<Pagination page={page} totalPages={totalPages} onPageChange={handleOnPageChange} />
 		</Wrapper>
 	);
 };
