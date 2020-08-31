@@ -1,21 +1,27 @@
 import React from "react";
 import routes from "./routes";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import NoMatch from "./NoMatch";
 import NavBar from "./components/navBar/Navbar";
-// import NavBar from "./NavBar";
+import { BackButton } from "./styled-components/components";
+import { history } from "react-router-dom";
 
-const App = () => {
+const App = ({ history }) => {
 	return (
 		<>
-			<NavBar />
 			<Switch>
 				{routes.map(({ path, exact, component: C, ...rest }) => (
 					<Route
 						key={path}
 						path={path}
 						exact={exact}
-						render={(props) => <C {...props} {...rest} />}
+						render={(props) => (
+							<>
+								<NavBar />
+								<BackButton size={36} onClick={() => history.push("/")}></BackButton>
+								<C {...props} {...rest} />
+							</>
+						)}
 					/>
 				))}
 				<Route render={(props) => <NoMatch {...props} />} />
@@ -24,4 +30,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default withRouter(App);
