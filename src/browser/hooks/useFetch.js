@@ -10,7 +10,7 @@ export const useFetch = (url, fetch, isPaginated, params) => {
 
 	console.log(url, "in fetch");
 	const param = url.split("/").pop();
-	
+
 	useEffect(() => {
 		setState({ loading: true });
 		(async () => {
@@ -18,15 +18,9 @@ export const useFetch = (url, fetch, isPaginated, params) => {
 			console.log(window.__INITIAL_DATA__, "window obj in fetch");
 			if (__isBrowser__ && window.__INITIAL_DATA__) {
 				setState({
-					page: !isPaginated
-					? window.__INITIAL_DATA__
-					: window.__INITIAL_DATA__.page,
-					results: !isPaginated
-					? window.__INITIAL_DATA__
-					: window.__INITIAL_DATA__.results,
-					totalPages: !isPaginated
-					? window.__INITIAL_DATA__
-					: window.__INITIAL_DATA__.total_pages,
+					page: !isPaginated ? window.__INITIAL_DATA__ : window.__INITIAL_DATA__.page,
+					results: !isPaginated ? window.__INITIAL_DATA__ : window.__INITIAL_DATA__.results,
+					totalPages: !isPaginated ? window.__INITIAL_DATA__ : window.__INITIAL_DATA__.total_pages,
 					loading: false,
 				});
 				console.log(window.__INITIAL_DATA__, "use window");
