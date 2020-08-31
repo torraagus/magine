@@ -8,12 +8,13 @@ import {
 	ReleaseDateSC,
 	ReleaseDateTextSC,
 	VoteAverageSC,
+	PageTitleSC,
 } from "../../styled-components/components";
 
 export const Wrapper = styled(MoviesWrapperSC)`
-	margin-top: 1rem;
 	display: flex;
 	flex-direction: column;
+	padding: 0 1rem 0 1rem;
 `;
 export const CategoryTitle = styled.h4`
 	letter-spacing: 3px;
@@ -38,11 +39,7 @@ export const Image = styled(MovieImageSC)`
 	width: 100%;
 `;
 export const Title = styled(MovieTitleSC)``;
-export const Name = styled.h1`
-	margin: 2rem 0 0 0;
-	font-weight: 900;
-	letter-spacing: 5px;
-`;
+export const Name = styled(PageTitleSC)``;
 export const Pages = styled.p`
 	letter-spacing: 3px;
 	font-weight: 500;

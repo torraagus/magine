@@ -49,71 +49,15 @@ export const BlackScreen = styled.div`
 `;
 
 export const Logo = styled.div`
-	color: black;
+	color: ${colors.secondary};
 	font-weight: bold;
 	letter-spacing: 3px;
 	font-size: 18px;
-	animation: myAnimation infinite 5s;
-	@keyframes myAnimation {
-		0% {
-			color: ${colors.primary};
-		}
-		100% {
-			color: ${colors.secondary};
-		}
-	}
-`;
+	text-transform: uppercase;
 
-export const NavButtons = styled.div`
-	display: flex;
-	animation: move infinite 10s ease;
-	@keyframes move {
-		1% {
-			transform: translateX(5px);
-		}
-		2% {
-			transform: translateX(-5px);
-		}
-		3% {
-			transform: translateX(3px);
-		}
-		4% {
-			transform: translateX(-3px);
-		}
-		5% {
-			transform: translateX(1px);
-		}
-		6% {
-			transform: translateX(0px);
-		}
-		100% {
-			transform: translate(0px);
-		}
-	}
-`;
-
-export const Button = styled.a`
-	display: none;
-	padding: 0.5rem 1rem 0.5rem 1rem;
-	background-color: #21e6c1;
-	color: white;
-	font-weight: bold;
-	border-radius: 15px 0 0 15px;
-	font-size: 14px;
-	text-decoration: none;
 	:hover {
 		cursor: pointer;
-		opacity: 90%;
 	}
-	@media (max-width: 768px) {
-		display: block;
-	}
-`;
-
-export const ResumeBtn = styled(Button)`
-	background-color: #278ea5;
-	color: white;
-	border-radius: 0 15px 15px 0;
 `;
 
 export const Menu = styled.ul`
@@ -170,7 +114,9 @@ export const MenuItem = styled.li`
 `;
 
 export const Item = styled.p`
-	color: black;
+	color: ${(props) => (props.active ? colors.secondary : "black")};
+	font-weight: ${(props) => (props.active ? "900" : "400")};
+	border-bottom: 
 	text-decoration: none;
 	padding: 1rem 0 1rem 0;
 	width: 100%;
