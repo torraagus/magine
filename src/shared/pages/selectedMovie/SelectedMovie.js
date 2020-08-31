@@ -21,28 +21,26 @@ import {
 	Count,
 	Overview,
 	Votes,
+	SectionWrapper,
 } from "./selectedMovie.styles";
+import Reviews from "../../components/reviews/Reviews";
+import SimilarMovies from "../../components/similarMovies/SimilarMovies";
+import Recommendations from "../../components/recommendations/Recommendations";
 
-const SelectedMovie = ({ location, fetchInitialData, history }) => {
-	const { results: movie, loading } = useFetch(
-		location.pathname,
-		fetchInitialData,
-		false
-	);
+const SelectedMovie = ({ location, fetchInitialData }) => {
+	const { results: movie, loading } = useFetch(location.pathname, fetchInitialData, false);
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <div>Loading movie...</div>;
 	} else {
 		return (
 			<>
-				<BackButton size={36} onClick={() => history.goBack()}></BackButton>
 				{movie && (
 					<MainWrapper>
 						<MovieWrapper>
+							{/* <BackButton size={36} onClick={() => history.goBack()}></BackButton> */}
 							<UpperInfo>
-								<PosterImage
-									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-								/>
+								<PosterImage src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
 								<MovieInfo>
 									<Title>{movie.title}</Title>
 									<Tagline>{movie.tagline}</Tagline>
@@ -53,12 +51,9 @@ const SelectedMovie = ({ location, fetchInitialData, history }) => {
 							<DownInfo>
 								<Companies>
 									<Field>Produced by</Field>
-									<Value flex overflow>
+									<Value flex overflow="true">
 										{movie.production_companies.map((pc) => (
-											<Logo
-												src={`https://image.tmdb.org/t/p/w500${pc.logo_path}`}
-												alt={pc.name}
-											/>
+											<Logo key={pc.id} src={`https://image.tmdb.org/t/p/w500${pc.logo_path}`} alt={pc.name} />
 										))}
 									</Value>
 								</Companies>
@@ -80,10 +75,19 @@ const SelectedMovie = ({ location, fetchInitialData, history }) => {
 								<SpokenLanguages>
 									<Field>Spoken languages</Field>
 									{movie.spoken_languages.map((lang) => (
-										<Value>{lang.name}</Value>
+										<Value key={lang.name}>{lang.name}</Value>
 									))}
 								</SpokenLanguages>
 							</DownInfo>
+							<SectionWrapper>
+								<Recommendations />
+							</SectionWrapper>
+							<SectionWrapper>
+								<SimilarMovies />
+							</SectionWrapper>
+							<SectionWrapper>
+								<Reviews />
+							</SectionWrapper>
 						</MovieWrapper>
 					</MainWrapper>
 				)}
