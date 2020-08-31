@@ -35,7 +35,7 @@ app.get("*", (req, res, next) => {
 					<head>
 						<meta charset="UTF-8">
 						<meta name="viewport" content="width=device-width, initial-scale=1.0">
-						<title>SSR with RR</title>
+						<title>Moviar</title>
 						<script src="/bundle.js" defer></script>
 						<script>window.__INITIAL_DATA__=${serialize(data)}</script>
 						<link rel="stylesheet" type="text/css" href="/styles.css">
