@@ -74,4 +74,40 @@ export const fetchMovieById = (movieId) => {
 			console.warn(err);
 			return null;
 		});
-}
+};
+
+export const fetchMovieReview = (params) => {
+	let url = `https://api.themoviedb.org/3/movie/${params.movieId}/reviews?api_key=${apiKey}&language=en-US&page=${params.page}`;
+
+	console.log("fetching reviews");
+	return fetch(url)
+		.then((res) => res.json())
+		.catch((err) => {
+			console.warn(err);
+			return null;
+		});
+};
+
+export const fetchSimilarMovies = (params) => {
+	let url = `https://api.themoviedb.org/3/movie/${params.movieId}/similar?api_key=${apiKey}&language=en-US&page=${params.page}`;
+
+	console.log("fetching reviews");
+	return fetch(url)
+		.then((res) => res.json())
+		.catch((err) => {
+			console.warn(err);
+			return null;
+		});
+};
+
+export const fetchRecommendations = (params) => {
+	let url = `https://api.themoviedb.org/3/movie/${params.movieId}/recommendations?api_key=${apiKey}&language=en-US&page=${params.page}`;
+
+	console.log("fetching reviews");
+	return fetch(url)
+		.then((res) => res.json())
+		.catch((err) => {
+			console.warn(err);
+			return null;
+		});
+};
