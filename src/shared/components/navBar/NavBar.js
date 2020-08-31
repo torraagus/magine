@@ -1,20 +1,9 @@
-import React, { useState } from "react";
-import {
-	Nav,
-	Logo,
-	NavButtons,
-	Button,
-	ResumeBtn,
-	Menu,
-	MenuItem,
-	Item,
-	BurguerMenu,
-	MenuLine,
-	BlackScreen,
-} from "./navBar.styles";
+import React, { useState, useEffect } from "react";
+import { Nav, Logo, Menu, MenuItem, Item, BurguerMenu, MenuLine, BlackScreen } from "./navBar.styles";
 import { withRouter } from "react-router-dom";
 
-const NavBar = ({ history }) => {
+const NavBar = ({ history, location }) => {
+	const [activeItem, setActiveItem] = useState("");
 	const menuItems = [
 		{ name: "Home", path: "/" },
 		{ name: "Now playing", path: "/now-playing/page/1" },
@@ -26,26 +15,33 @@ const NavBar = ({ history }) => {
 	];
 	const [isOpen, setIsOpen] = useState(false);
 
-	const handleOnClick = (path) => {
+	const handleOnClick = (item) => {
 		setIsOpen(false);
+		setActiveItem(item.name.toLowerCase());
+		goToPath(item.path);
+	};
+
+	const goToPath = (path) => {
 		history.push(path);
 	};
+
+	useEffect(() => {
+		setActiveItem(location.pathname.split("/")[1] === "" ? "home" : location.pathname.split("/")[1].replace("-", " "));
+	}, [location.pathname]);
 
 	return (
 		<>
 			<BlackScreen show={isOpen} onClick={() => setIsOpen(false)} />
 			<Nav>
-				<Logo>MOVIAR</Logo>
-				{/* <NavButtons>
-					<Button href="#my-work" onClick={() => handleOnClick(false)}>
-						My work
-					</Button>
-					<ResumeBtn onClick={handleOnClickResume}>Resume</ResumeBtn>
-				</NavButtons> */}
+				<Logo onClick={() => goToPath("/")}>Moviar</Logo>
 				<Menu className={`${isOpen ? "menuActive" : ""}`}>
 					{menuItems.map((item) => (
 						<MenuItem key={item.name}>
-                            <Item href={item.path} onClick={() => handleOnClick(item.path)}>
+							<Item
+								active={activeItem === item.name.toLowerCase()}
+								href={item.path}
+								onClick={() => handleOnClick(item)}
+							>
 								{item.name}
 							</Item>
 						</MenuItem>
