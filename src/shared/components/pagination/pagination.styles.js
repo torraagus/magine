@@ -4,7 +4,7 @@ import { PrimaryBtnSC } from "../../styled-components/components";
 export const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
-	padding-top: ${props => props.upper ? '1rem' : '3rem'};
+	padding-top: ${(props) => (props.upper ? "1rem" : "3rem")};
 	padding-bottom: 2rem;
 `;
 
