@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Nav, Logo, Menu, MenuItem, Item, BurguerMenu, MenuLine, BlackScreen } from "./navBar.styles";
+import {
+	Nav,
+	Logo,
+	Menu,
+	MenuItem,
+	Item,
+	BurguerMenu,
+	MenuLine,
+	BlackScreen,
+	LogInBtn,
+	SignUpBtn,
+} from "./navBar.styles";
 import { withRouter } from "react-router-dom";
 
 const NavBar = ({ history, location }) => {
@@ -42,7 +53,9 @@ const NavBar = ({ history, location }) => {
 								href={item.path}
 								onClick={() => handleOnClick(item)}
 							>
-								{item.name}
+								{item.name !== "Log in" && item.name !== "Sign up" && item.name}
+								{item.name === "Log in" && <LogInBtn>Log in</LogInBtn>}
+								{item.name === "Sign up" && <SignUpBtn>Sign up</SignUpBtn>}
 							</Item>
 						</MenuItem>
 					))}
