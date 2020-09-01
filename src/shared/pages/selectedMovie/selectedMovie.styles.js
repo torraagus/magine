@@ -22,7 +22,8 @@ export const Overview = styled.p`
 	margin: 0;
 `;
 export const MainWrapper = styled.div`
-	margin-top: 1rem;
+	// margin-top: 1rem;
+	padding-top: 12vh;
 	display: flex;
 	justify-content: center;
 	flexwrap: wrap;
