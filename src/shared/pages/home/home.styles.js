@@ -13,7 +13,7 @@ import {
 } from "../../styled-components/components";
 
 export const Wrapper = styled(MoviesWrapperSC)`
-	// padding-top: 14vh;
+	padding-top: 15vh;
 `;
 
 export const Category = styled.div`

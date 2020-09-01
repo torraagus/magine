@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../../browser/styles/colors";
+import { PrimaryBtnSC, SecondaryBtnSC } from "../../styled-components/components";
 
 export const Nav = styled.nav`
 	position: fixed;
@@ -50,7 +51,7 @@ export const BlackScreen = styled.div`
 
 export const Logo = styled.div`
 	color: ${colors.secondary};
-	font-weight: bold;
+	font-weight: 900;
 	letter-spacing: 3px;
 	font-size: 18px;
 	text-transform: uppercase;
@@ -93,22 +94,29 @@ export const MenuItem = styled.li`
 	letter-spacing: 2px;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
-	// :nth-child(1) {
-	// 	font-weight: 700;
-	// }
+	align-self: center;
+
+	:nth-child(5) {
+		border-right: 1px solid ${colors.secondary};
+		padding-right: 1rem;
+	}
+
 	@media (max-width: 768px) {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-		margin: 0;
-		:hover {
-			font-weight: bold;
-			cursor: pointer;
-			background-color: ${colors.terciary};
-		}
-		:hover > a {
-			color: white;
+		:nth-child(n) {
+			display: flex;
+			align-items: center;
+			align-self: unset;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+			:hover {
+				font-weight: bold;
+				cursor: pointer;
+				background-color: ${colors.terciary};
+			}
+			:hover > a {
+				color: white;
+			}
 		}
 	}
 `;
@@ -116,7 +124,6 @@ export const MenuItem = styled.li`
 export const Item = styled.p`
 	color: ${(props) => (props.active ? colors.secondary : "black")};
 	font-weight: ${(props) => (props.active ? "900" : "400")};
-	border-bottom: 
 	text-decoration: none;
 	padding: 1rem 0 1rem 0;
 	width: 100%;
@@ -159,3 +166,12 @@ export const MenuLine = styled.div`
 		transform: rotate(45deg) translate(-5px, -5px);
 	}
 `;
+
+export const LogInBtn = styled(SecondaryBtnSC)`
+	margin-left: 0.5rem;
+
+	@media (max-width: 768px) {
+		margin-left: 0;
+	}
+`;
+export const SignUpBtn = styled(PrimaryBtnSC)``;
