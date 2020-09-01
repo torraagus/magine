@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
 	Pages,
 	Image,
@@ -16,16 +16,20 @@ import { BackButton } from "../../styled-components/components";
 import { useFetch } from "../../../browser/hooks/useFetch";
 import Pagination from "../../components/pagination/Pagination";
 
-const AllMovies = ({ location, fetchInitialData, history, name, basePath }) => {
+const AllMovies = ({ location, fetchInitialData, history, name, basePath, OnFinishLoading }) => {
 	const { results: movies, page, totalPages, loading } = useFetch(location.pathname, fetchInitialData, true);
 
 	const handleOnPageChange = (page) => {
 		history.push(`${basePath}/${page}`);
 	};
 
+	useEffect(() => {
+		if (!loading) OnFinishLoading();
+	}, [loading]);
+
 	return (
 		<Wrapper>
-			{/* <BackButton size={36} onClick={() => history.push("/")}></BackButton> */}
+			<BackButton size={36} onClick={() => history.push("/")} />
 			<Category>
 				<Name>{name}</Name>
 				{page && (

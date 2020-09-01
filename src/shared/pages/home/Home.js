@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { Category, CategoryTitle, Movies, Title, Wrapper, SeeAllBtn } from "./home.styles";
 import { useFetch } from "../../../browser/hooks/useFetch";
 import MovieList from "../../components/movies/MovieList";
 
-const Home = ({ location, fetchInitialData, history, categories }) => {
+const Home = ({ location, fetchInitialData, history, categories, OnFinishLoading }) => {
 	const { results: movies, loading } = useFetch(location.pathname, fetchInitialData, false);
 
 	const handleClick = (path) => {
 		history.push(path);
 	};
+
+	useEffect(() => {
+		if (!loading) OnFinishLoading();
+	}, [loading]);
 
 	if (loading) {
 		return <div>Loading...</div>;

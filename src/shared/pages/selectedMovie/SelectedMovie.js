@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFetch } from "../../../browser/hooks/useFetch";
-import { BackButton } from "../../styled-components/components";
 import {
 	Logo,
 	MainWrapper,
@@ -27,8 +26,12 @@ import Reviews from "../../components/reviews/Reviews";
 import SimilarMovies from "../../components/similarMovies/SimilarMovies";
 import Recommendations from "../../components/recommendations/Recommendations";
 
-const SelectedMovie = ({ location, fetchInitialData }) => {
+const SelectedMovie = ({ location, fetchInitialData, OnFinishLoading }) => {
 	const { results: movie, loading } = useFetch(location.pathname, fetchInitialData, false);
+
+	useEffect(() => {
+		if (!loading) OnFinishLoading();
+	}, [loading]);
 
 	if (loading) {
 		return <div>Loading movie...</div>;
@@ -38,7 +41,6 @@ const SelectedMovie = ({ location, fetchInitialData }) => {
 				{movie && (
 					<MainWrapper>
 						<MovieWrapper>
-							{/* <BackButton size={36} onClick={() => history.goBack()}></BackButton> */}
 							<UpperInfo>
 								<PosterImage src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
 								<MovieInfo>
