@@ -28,6 +28,19 @@ export const PrimaryBtnSC = styled.button`
 	}
 `;
 
+export const SecondaryBtnSC = styled(PrimaryBtnSC)`
+	background-color: ${colors.terciary};
+	color: ${colors.secondary};
+
+	box-shadow: none;
+
+	:hover {
+		cursor: pointer;
+		color: ${colors.terciary};
+		background-color: ${colors.secondary};
+	}
+`;
+
 export const MovieTitleSC = styled.p`
 	padding: 0.5rem 0.5rem 0 0.5rem;
 	font-size: 14px;
@@ -89,7 +102,7 @@ export const ReleaseDateTextSC = styled.small`
 export const BackButton = styled(TiArrowBack)`
 	font-size: 36px;
 	opacity: 50%;
-	padding: 0.5rem;
+	padding: 1rem;
 	margin-top: 12vh;
 
 	:hover {
