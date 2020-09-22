@@ -2,7 +2,13 @@ export interface IMovie {
 	id: number;
 	title: string;
 	poster_path: string;
+	backdrop_path: string;
 	release_date: string;
+	overview: string;
+	tagline: string;
+	genres: Array<{ id: number; name: string }>;
+	runtime: number;
+	vote_average: number;
 }
 
 interface Response {
@@ -40,7 +46,7 @@ const INITIAL_STATE = {
 	error: "",
 };
 
-const movieReducer = (state: IState = INITIAL_STATE, action: IAction) => {
+const moviesReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	const { type, result, error } = action;
 	switch (type) {
 		case "NOW-PLAYING_MOVIES_FETCH_SUCCEEDED":
@@ -72,9 +78,10 @@ const movieReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 			return { ...state, upcoming: { ...state.upcoming, movies: [], loading: true } };
 		case "UPCOMING_MOVIES_FETCH_FAILED":
 			return { ...state, upcoming: { movies: [], loading: false, error } };
+
 		default:
 			return state;
 	}
 };
 
-export default movieReducer;
+export default moviesReducer;

@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Category: FC<Props> = ({ title, category }) => {
-	const { movies, loading, error } = useSelector((state: RootState) => state.movieReducer[category]);
+	const { movies, loading, error } = useSelector((state: RootState) => state.moviesReducer[category]);
 
 	// if (loading)
 	// 	return (

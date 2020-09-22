@@ -4,7 +4,7 @@ import SelectedMovie from "./components/selectedMovie/SelectedMovie";
 export interface IRoute {
 	path: string;
 	exact?: boolean;
-	component: React.FC<any>;
+	component: any;
 	actions?: string[];
 	noNavBar?: boolean;
 }

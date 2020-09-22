@@ -73,15 +73,14 @@ const fetchUpcomingMovies = async (page) => {
 	return data;
 };
 
-export const fetchMovieById = (movieId) => {
-	let url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
+const fetchMovie = async (id) => {
+	const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+	const response = await fetch(url);
+	const data = await response.json();
 
-	return fetch(url)
-		.then((res) => res.json())
-		.catch((err) => {
-			console.warn(err);
-			return null;
-		});
+	if (data.success !== undefined && !data.success) throw new Error(data.status_message);
+
+	return data;
 };
 
 export const fetchMovieReview = (params) => {
@@ -117,4 +116,4 @@ export const fetchRecommendations = (params) => {
 		});
 };
 
-export default { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies };
+export default { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovie };

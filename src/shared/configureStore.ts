@@ -2,11 +2,11 @@ import { createStore, applyMiddleware, CombinedState } from "redux";
 import createSagaMiddleware from "redux-saga";
 import reducers from "./reducers";
 import rootSaga from "./sagas";
-import { IState } from "./reducers/movie.reducer";
+import { IState } from "./reducers/movies.reducer";
 
 export default function configureStore(
 	initialState?: CombinedState<{
-		movieReducer: IState;
+		moviesReducer: IState;
 	}>
 ) {
 	const sagaMiddleware = createSagaMiddleware();
