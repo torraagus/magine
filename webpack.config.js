@@ -14,7 +14,7 @@ module.exports = () => {
 
 	const browserConfig = {
 		mode: "development",
-		entry: path.resolve(__dirname, "src", "browser", "index.js"),
+		entry: path.resolve(__dirname, "src", "browser", "index.tsx"),
 		output: {
 			path: path.resolve(__dirname, "public"),
 			filename: "bundle.js",
@@ -22,12 +22,23 @@ module.exports = () => {
 		},
 		module: {
 			rules: [
-				{ test: /\.(js)$/, use: "babel-loader" },
+				{
+					test: /\.tsx?$/,
+					use: "babel-loader",
+					exclude: /node_modules/,
+				},
+				{
+					test: /\.js$/,
+					use: "babel-loader",
+				},
 				{
 					test: /\.(css|sass|scss)$/,
 					use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
 				},
 			],
+		},
+		resolve: {
+			extensions: [".tsx", ".ts", ".js"],
 		},
 		plugins: [
 			new webpack.DefinePlugin({
@@ -42,7 +53,7 @@ module.exports = () => {
 
 	const serverConfig = {
 		mode: "development",
-		entry: path.resolve(__dirname, "src", "server", "index.js"),
+		entry: path.resolve(__dirname, "src", "server", "index.tsx"),
 		target: "node",
 		externals: [nodeExternals()],
 		output: {
@@ -51,7 +62,20 @@ module.exports = () => {
 			publicPath: "/",
 		},
 		module: {
-			rules: [{ test: /\.(js)$/, use: "babel-loader" }],
+			rules: [
+				{
+					test: /\.tsx?$/,
+					use: "babel-loader",
+					exclude: /node_modules/,
+				},
+				{
+					test: /\.js$/,
+					use: "babel-loader",
+				},
+			],
+		},
+		resolve: {
+			extensions: [".tsx", ".ts", ".js"],
 		},
 		plugins: [
 			new webpack.DefinePlugin({
