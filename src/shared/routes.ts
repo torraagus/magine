@@ -1,5 +1,7 @@
 import Home from "./components/home/Home";
 import SelectedMovie from "./components/selectedMovie/SelectedMovie";
+import Login from "./components/login/Login";
+import Profile from "./components/profile/Profile";
 
 export interface IRoute {
 	path: string;
@@ -21,6 +23,15 @@ const routes: Routes = [
 	{
 		path: "/movies/id/:id",
 		component: SelectedMovie,
+	},
+	{
+		path: "/login",
+		component: Login,
+		noNavBar: true
+	},
+	{
+		path: "/profile",
+		component: Profile,
 	},
 ];
 
