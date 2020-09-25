@@ -3,6 +3,7 @@ import Category from "../categories/Category";
 import W from "../../styles/wrappers";
 import { useDispatch } from "react-redux";
 import { colors } from "../../../browser/styles/colors";
+import Footer from "../footer/Footer";
 
 interface Props {}
 
@@ -16,11 +17,14 @@ const Home: FC<Props> = () => {
 	}, []);
 
 	return (
-		<W.Main isFirst height={30}>
-			<Category title={"Now playing"} category="nowPlaying" />
-			<Category title={"Popular"} category="popular" />
-			<Category title={"Upcoming"} category="upcoming" />
-		</W.Main>
+		<>
+			<W.Main isFirst height={30}>
+				<Category title={"Now playing"} category="nowPlaying" />
+				<Category title={"Popular"} category="popular" />
+				<Category title={"Upcoming"} category="upcoming" />
+			</W.Main>
+			<Footer />
+		</>
 	);
 };
 
