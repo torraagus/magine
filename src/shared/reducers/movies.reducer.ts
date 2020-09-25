@@ -9,6 +9,7 @@ export interface IMovie {
 	genres: Array<{ id: number; name: string }>;
 	runtime: number;
 	vote_average: number;
+	rating: number;
 }
 
 interface Response {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import routes from "./routes";
 import NoMatch from "./components/noMatch/NoMatch";
 import NavBar from "./components/navBar/Navbar";

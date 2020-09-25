@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import Co from "../../constants/constants";
 import W from "../../styles/wrappers";
 import { useDispatch } from "react-redux";
+import { colors } from "../../../browser/styles/colors";
 
 interface IProps {
 	movie: IMovie;
@@ -13,7 +14,6 @@ interface IProps {
 type Props = RouteComponentProps<any, {}> & IProps;
 
 const Movie: FC<Props> = ({ movie, history }) => {
-	const dispatch = useDispatch();
 	const onMovieSelected = () => {
 		history.push(`/movies/id/${movie.id}`);
 	};
@@ -22,6 +22,7 @@ const Movie: FC<Props> = ({ movie, history }) => {
 		<W.Movie onClick={onMovieSelected}>
 			<Img src={`${Co.IMAGE_SRC_PREFIX}${movie.poster_path}`} />
 			<Title>{movie.title}</Title>
+			{movie.rating && <p style={{ color: colors.secondary, fontWeight: "bold" }}>{`Your score: ${movie.rating}`}</p>}
 			<ReleaseDate>{movie.release_date}</ReleaseDate>
 		</W.Movie>
 	);

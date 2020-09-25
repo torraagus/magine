@@ -1,10 +1,10 @@
 import { all, takeLatest } from "redux-saga/effects";
 import { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovie } from "./movies.saga";
-import { guestLogin, userLogin, logout } from "./user.saga";
+import { guestLogin, userLogin, logout, rateMovie, removeVote, fetchRatedMovies } from "./user.saga";
 
 function* watchAll() {
 	yield all([
-		// Movies 
+		// Movies
 		takeLatest("NOW-PLAYING_MOVIES_FETCH_REQUESTED", fetchNowPlayingMovies),
 		takeLatest("POPULAR_MOVIES_FETCH_REQUESTED", fetchPopularMovies),
 		takeLatest("UPCOMING_MOVIES_FETCH_REQUESTED", fetchUpcomingMovies),
@@ -14,6 +14,11 @@ function* watchAll() {
 		takeLatest("GUEST_LOGIN_REQUESTED", guestLogin),
 		takeLatest("USER_LOGIN_REQUESTED", userLogin),
 		takeLatest("USER_LOGOUT_REQUESTED", logout),
+
+		takeLatest("MOVIE_VOTE_REQUESTED", rateMovie),
+		takeLatest("REMOVE_MOVIE_VOTE_REQUESTED", removeVote),
+
+		takeLatest("RATED_MOVIES_FETCH_REQUESTED", fetchRatedMovies),
 	]);
 }
 

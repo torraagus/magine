@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../browser/styles/colors";
 
 const Movie = styled.div`
+	max-width: 150px;
 	display: flex;
 	flex-direction: column;
 	margin: 0.5rem;
