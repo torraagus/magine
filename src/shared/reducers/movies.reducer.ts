@@ -17,6 +17,7 @@ interface Response {
 	loading: boolean;
 	error: string;
 	page: number;
+	total_pages: number;
 }
 
 export interface IState {
@@ -41,9 +42,9 @@ interface IAction {
 }
 
 const INITIAL_STATE = {
-	nowPlaying: { movies: [], loading: false, error: null, page: 1 },
-	popular: { movies: [], loading: false, error: null, page: 1 },
-	upcoming: { movies: [], loading: false, error: null, page: 1 },
+	nowPlaying: { movies: [], loading: false, error: null, page: 1, total_pages: 1 },
+	popular: { movies: [], loading: false, error: null, page: 1, total_pages: 1 },
+	upcoming: { movies: [], loading: false, error: null, page: 1, total_pages: 1 },
 	error: "",
 };
 
@@ -53,7 +54,13 @@ const moviesReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 		case "NOW-PLAYING_MOVIES_FETCH_SUCCEEDED":
 			return {
 				...state,
-				nowPlaying: { ...state.nowPlaying, movies: [...result.results], loading: false, page: result.page },
+				nowPlaying: {
+					...state.nowPlaying,
+					movies: [...result.results],
+					loading: false,
+					page: result.page,
+					total_pages: result.total_pages,
+				},
 			};
 		case "NOW-PLAYING_MOVIES_FETCHING":
 			return { ...state, nowPlaying: { ...state.nowPlaying, movies: [], loading: true } };
@@ -63,7 +70,13 @@ const moviesReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 		case "POPULAR_MOVIES_FETCH_SUCCEEDED":
 			return {
 				...state,
-				popular: { ...state.popular, movies: [...result.results], loading: false, page: result.page },
+				popular: {
+					...state.popular,
+					movies: [...result.results],
+					loading: false,
+					page: result.page,
+					total_pages: result.total_pages,
+				},
 			};
 		case "POPULAR_MOVIES_FETCHING":
 			return { ...state, popular: { ...state.popular, movies: [], loading: true } };
@@ -73,7 +86,13 @@ const moviesReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 		case "UPCOMING_MOVIES_FETCH_SUCCEEDED":
 			return {
 				...state,
-				upcoming: { ...state.upcoming, movies: [...result.results], loading: false, page: result.page },
+				upcoming: {
+					...state.upcoming,
+					movies: [...result.results],
+					loading: false,
+					page: result.page,
+					total_pages: result.total_pages,
+				},
 			};
 		case "upcoming_MOVIES_FETCHING":
 			return { ...state, upcoming: { ...state.upcoming, movies: [], loading: true } };

@@ -1,4 +1,5 @@
 export default {
 	nowPlaying: "NOW-PLAYING_MOVIES_FETCH_REQUESTED",
 	popular: "POPULAR_MOVIES_FETCH_REQUESTED",
+	upcoming: "UPCOMING_MOVIES_FETCH_REQUESTED",
 };
