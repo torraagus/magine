@@ -1,8 +1,8 @@
 // import variables from './variables.scss'
 
 export const colors = {
-	primary: "#ff006c",
-	secondary: "#973961",
+	primary: "#3fbac2",
+	secondary: "#4d606e",
 	terciary: "#f9f9f9",
 	light: "#777777",
 };
