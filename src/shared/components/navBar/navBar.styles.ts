@@ -15,7 +15,7 @@ export const SearchIcon = styled(BiSearch)`
 	border-radius: 90px;
 	outline: none;
 	background-color: ${colors.primary};
-	margin: 0 0.5rem 0 0;
+	margin: 0 0.5rem 0 0.5rem;
 
 	:hover {
 		cursor: pointer;

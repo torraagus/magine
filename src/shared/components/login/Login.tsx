@@ -50,14 +50,23 @@ const Login: React.FC<Props> = ({ history }) => {
 					display: "flex",
 					flexDirection: "column",
 					border: "1px solid #ccc",
-					padding: ".5rem 1rem 2rem 1rem",
+					padding: ".5rem 1rem 1rem 1rem",
 					margin: "1rem 0 0 0",
 					backgroundColor: "white",
+					MozBoxShadow: "10px 10px 5px 0px #651a1b2f",
+					WebkitBoxShadow: "10px 10px 5px 0px #651a1b31",
+					boxShadow: "5px 5px 5px 0px #651a1b27",
 					borderRadius: 15,
 				}}
 			>
 				<h4
-					style={{ color: colors.primary, letterSpacing: 3, textAlign: "center", margin: "1rem 0 0 0" }}
+					style={{
+						color: colors.primary,
+						letterSpacing: 3,
+						textAlign: "center",
+						padding: "1rem 0 1rem 0",
+						borderBottom: `1px solid ${colors.primary}`,
+					}}
 					onClick={() => history.push("/")}
 				>
 					Moviar
