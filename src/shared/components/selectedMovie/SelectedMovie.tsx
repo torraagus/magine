@@ -10,6 +10,7 @@ import util from "./utils";
 import Stars from "../stars/Stars";
 import { IMovie } from "../../reducers/movies.reducer";
 import MovieCast from "../movieCast/MovieCast";
+import MoreMovieInfo from "../moreMovieInfo/MoreMovieInfo";
 
 type Props = RouteComponentProps<any, {}>;
 
@@ -52,7 +53,7 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 
 	return movie ? (
 		<>
-			{/* {console.log("render times")} */}
+			{console.log(movie, "MOVIE DATA")}
 			<W.Main isFirst bg={colors.secondary} height={60}>
 				<div style={{ display: "flex", width: "70%", padding: "2rem 0 2rem 0", color: "white" }}>
 					<img style={{ width: "25%", borderRadius: "15px" }} src={`${Co.IMAGE_SRC_PREFIX}${movie.poster_path}`} />
@@ -75,15 +76,15 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 							))}
 							<p style={{ padding: "0 0 0 1rem" }}>{util.formatRuntime(movie.runtime)}</p>
 						</div>
-						<div style={{ display: "flex", alignItems: "center" }}>
-							<p style={{ fontSize: 36, fontWeight: "bold" }}>{movie.vote_average}</p>
+						<div style={{ display: "flex", alignItems: "center", margin: ".5rem 0" }}>
+							<p style={{ fontSize: 40, fontWeight: "bold" }}>{movie.vote_average}</p>
 							<p style={{ fontWeight: "bold", padding: "0 0 0 1rem" }}>User score</p>
 							{/* <button style={{ padding: ".5rem", fontWeight: "bold", margin: "0 0 0 1rem" }}>Rate it!</button> */}
 						</div>
-						<p style={{ color: colors.primary }}>
+						<p style={{ color: colors.primary, margin: ".5rem 0" }}>
 							<i>{movie.tagline}</i>
 						</p>
-						<p style={{ fontWeight: "bold", fontSize: 20 }}>Overview</p>
+						<p style={{ fontWeight: "bold", fontSize: 20, margin: ".5rem 0" }}>Overview</p>
 						<p>{movie.overview}</p>
 					</div>
 				</div>
@@ -162,7 +163,10 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 						</>
 					)}
 				</div>
-				<MovieCast />
+				<div style={{ display: "flex" }}>
+					<MovieCast />
+					<MoreMovieInfo movie={movie} />
+				</div>
 			</W.Main>
 		</>
 	) : null;

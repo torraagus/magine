@@ -10,6 +10,12 @@ export interface IMovie {
 	runtime: number;
 	vote_average: number;
 	rating: number;
+	status: string;
+	budget: number;
+	revenue: number;
+	original_language: string;
+	popularity: number;
+	homepage: string;
 }
 
 interface Response {

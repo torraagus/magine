@@ -54,14 +54,14 @@ const MovieCast: FC<Props> = () => {
 				style={{
 					margin: "1rem 0 0 0",
 					padding: "1rem 0",
-					width: "70vw",
+					width: "55vw",
 					display: "flex",
 					overflowX: "auto",
 					alignItems: "flex-start",
 				}}
 			>
 				{cast.map((member) => (
-					<CastMember member={member} />
+					<CastMember key={member.id} member={member} />
 				))}
 			</div>
 		</div>
