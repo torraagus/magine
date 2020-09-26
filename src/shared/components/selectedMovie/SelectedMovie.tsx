@@ -87,18 +87,32 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 				</div>
 			</W.Main>
 			<W.Main>
-				<div style={{ width: "70%", padding: "2rem 0 2rem 0" }}>
-					<h2>Your vote</h2>
+				<div
+					style={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+						width: "70%",
+						padding: "0 1rem 0 0",
+						borderLeft: `3px solid ${colors.primary}`,
+						MozBoxShadow: "10px 10px 5px 0px #651a1b2f",
+						WebkitBoxShadow: "10px 10px 5px 0px #651a1b31",
+						boxShadow: "5px 5px 5px 0px #651a1b27",
+						borderRadius: 10,
+						margin: "1rem 0 0 0",
+					}}
+				>
+					<h2 style={{ borderRadius: 10, padding: "1rem" }}>Your vote</h2>
 					{ratedMovieError && <p>{ratedMovieError}</p>}
 					{!isLoggedIn && (
 						<>
-							<p>You must be logged in to vote!</p>
+							{/* <p>You must be logged in to vote!</p> */}
 							<button
 								onClick={() => history.push("/login")}
 								style={{
 									width: 150,
 									padding: ".5rem",
-									margin: "1rem 0 0 0",
+									// margin: "1rem 0 0 0",
 									border: "none",
 									backgroundColor: colors.primary,
 									color: "white",
@@ -107,7 +121,7 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 									fontWeight: "bold",
 								}}
 							>
-								Get in
+								Login to rate
 							</button>
 						</>
 					)}
@@ -115,19 +129,16 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 						<>
 							{ratedMovie ? (
 								<>
-									<p>
-										<b style={{ fontSize: 36, color: colors.secondary }}>{ratedMovie.rating}</b>
-									</p>
-									<p>Points</p>
+									<div style={{ display: "flex", alignItems: "center", padding: "0 1rem 0 1rem" }}>
+										<b style={{ fontSize: 18, color: colors.secondary }}>{ratedMovie.rating} Points</b>
+									</div>
+									<div style={{ display: "flex", alignItems: "center", padding: "0 1rem 0 1rem" }}>
+										<b style={{ fontSize: 18, color: colors.primary }}>{ratedMovie.rating / 2} Stars</b>
+									</div>
 									<Stars stars={ratedMovie.rating / 2} />
-									<p>
-										<b style={{ color: colors.primary }}>Stars: {ratedMovie.rating / 2}</b>{" "}
-									</p>
 									<button
 										style={{
-											width: 150,
-											padding: ".5rem",
-											margin: "1rem 0 0 0",
+											padding: ".5rem 1rem .5rem 1rem",
 											border: "none",
 											backgroundColor: colors.secondary,
 											color: "white",
@@ -137,17 +148,14 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 										}}
 										onClick={() => dispatch({ type: "REMOVE_MOVIE_VOTE_REQUESTED", movie, isGuest, session_id })}
 									>
-										Remove vote
+										Remove
 									</button>
 								</>
 							) : (
-								<>
-									<p>You didn't vote for this movie</p>
-									<Stars
-										stars={-1}
-										onVote={(vote) => dispatch({ type: "MOVIE_VOTE_REQUESTED", movie, vote, isGuest, session_id })}
-									/>
-								</>
+								<Stars
+									stars={-1}
+									onVote={(vote) => dispatch({ type: "MOVIE_VOTE_REQUESTED", movie, vote, isGuest, session_id })}
+								/>
 							)}
 						</>
 					)}

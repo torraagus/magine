@@ -56,10 +56,7 @@ const Stars: FC<Props> = ({ onVote, stars }) => {
 	}, [stars]);
 
 	return (
-		<div
-			style={{ paddingTop: "1rem", width: "fit-content" }}
-			onMouseLeave={() => (!stars ? setSelected(-1) : setSelected(stars))}
-		>
+		<div style={{ width: "fit-content" }} onMouseLeave={() => (!stars ? setSelected(-1) : setSelected(stars))}>
 			{container.map((star) => star)}
 		</div>
 	);
