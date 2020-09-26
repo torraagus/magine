@@ -96,8 +96,6 @@ const fetchRatedMovies = async (username: string, isGuest: boolean, session_id: 
 
 	if (!data.results) throw new Error(data.status_message);
 
-	console.log(data, "FETCH RATED MOVIES");
-
 	return data;
 };
 

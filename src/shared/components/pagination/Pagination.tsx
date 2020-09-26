@@ -14,7 +14,6 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 
 	return (
 		<div style={{ display: "flex", margin: "1rem 0 1rem 0" }}>
-			{/* {console.log({ type: action, args, page: 1 })} */}
 			<button
 				style={{
 					padding: ".25rem 1rem .25rem 1rem",
@@ -25,6 +24,7 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 					borderRadius: 10,
 					outline: "none",
 					marginRight: ".25rem",
+					border: "none",
 				}}
 				disabled={page == 1}
 				onClick={() => dispatch({ type: action, ...args, page: 1 })}
@@ -40,6 +40,7 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 					fontWeight: "bold",
 					borderRadius: "10px 0 0 10px",
 					outline: "none",
+					border: "none",
 				}}
 				disabled={page == 1}
 				onClick={() => dispatch({ type: action, ...args, page: page - 1 })}
@@ -59,6 +60,7 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 					fontWeight: "bold",
 					borderRadius: "0 10px 10px 0",
 					outline: "none",
+					border: "none",
 				}}
 				onClick={() => dispatch({ type: action, ...args, page: page + 1 })}
 			>
@@ -74,6 +76,7 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 					borderRadius: 10,
 					outline: "none",
 					marginLeft: ".25rem",
+					border: "none",
 				}}
 				disabled={page == total_pages}
 				onClick={() => dispatch({ type: action, ...args, page: total_pages })}

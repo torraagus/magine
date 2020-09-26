@@ -68,9 +68,6 @@ function* fetchMovieCast(action) {
 }
 
 function* searchMovies(action) {
-	console.log(action, "action saga");
-	console.log(action.query, "action saga");
-	console.log(action.page, "action saga");
 	yield put({ type: "START_LOADING_BAR" });
 	try {
 		// yield delay(1500);

@@ -23,8 +23,6 @@ function* userLogin(action) {
 	try {
 		// yield delay(1000);
 		const { session_id, username } = yield call(UserService.userLogin, action.credentials);
-		console.log(session_id, "SESSION ID");
-		console.log(username, "USERNAME");
 		yield put({
 			type: "USER_LOGIN_SUCCEEDED",
 			session_id,
@@ -55,11 +53,9 @@ function* rateMovie(action) {
 	// yield put({ type: "NOW-PLAYING_MOVIES_FETCHING" });
 	try {
 		// yield delay(1000);
-		console.log("user saga");
 		yield call(UserService.rateMovie, movie.id, vote, isGuest, session_id);
 		yield put({ type: "MOVIE_VOTE_SUCCEEDED", ratedMovie: movie, rating: vote });
 	} catch (e) {
-		console.log(e);
 		yield put({ type: "MOVIE_VOTE_FAILED", error: e.message });
 	}
 	yield put({ type: "FULL_LOADING_BAR" });
@@ -72,7 +68,6 @@ function* removeVote(action) {
 		yield call(UserService.removeVote, movie.id, isGuest, session_id);
 		yield put({ type: "REMOVE_MOVIE_VOTE_SUCCEEDED", ratedMovie: movie });
 	} catch (e) {
-		console.log(e);
 		yield put({ type: "REMOVE_MOVIE_VOTE_FAILED", error: e.message });
 	}
 	yield put({ type: "FULL_LOADING_BAR" });
@@ -85,7 +80,6 @@ function* fetchRatedMovies(action) {
 		const result = yield call(UserService.fetchRatedMovies, username, isGuest, session_id);
 		yield put({ type: "RATED_MOVIES_FETCH_SUCCEEDED", ratedMovies: result });
 	} catch (e) {
-		console.log(e);
 		yield put({ type: "RATED_MOVIES_FETCH_FAILED", error: e.message });
 	}
 	yield put({ type: "FULL_LOADING_BAR" });

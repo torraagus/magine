@@ -23,7 +23,6 @@ const ratedMoviesReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 
 	switch (type) {
 		case "MOVIE_VOTE_SUCCEEDED":
-			console.log(state, "STATE IN USER REDUCER");
 			const index = state.ratedMovies.findIndex((movie) => movie.id === ratedMovie.id);
 			if (index !== -1) state.ratedMovies.splice(index, 1);
 			return { ...state, ratedMovies: [...state.ratedMovies, { ...ratedMovie, rating }] };

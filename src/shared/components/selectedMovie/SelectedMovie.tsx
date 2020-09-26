@@ -33,7 +33,6 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 
 	useEffect(() => {
 		if (!movie) return;
-		console.log(ratedMovies);
 		setRatedMovie(ratedMovies?.find((r) => r.id === movie.id));
 	}, [movie, ratedMovies]);
 
@@ -53,7 +52,6 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 
 	return movie ? (
 		<>
-			{console.log(movie, "MOVIE DATA")}
 			<W.Main isFirst bg={colors.secondary} height={60}>
 				<div style={{ display: "flex", width: "70%", padding: "2rem 0 2rem 0", color: "white" }}>
 					<img style={{ width: "25%", borderRadius: "15px" }} src={`${Co.IMAGE_SRC_PREFIX}${movie.poster_path}`} />

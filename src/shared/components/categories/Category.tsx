@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-import { useSelector } from "react-redux";
+import React, { FC, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../reducers/interface";
-import Pagination from "../pagination/Pagination";
 import actionTypes from "../../sagas/actionTypes";
 import Movie from "../movie/Movie";
 import St from "../../styles/wrappers";
@@ -13,15 +12,13 @@ interface Props {
 }
 
 const Category: FC<Props> = ({ title, category }) => {
-	const { movies, loading, error } = useSelector((state: RootState) => state.moviesReducer[category]);
+	const { movies, error } = useSelector((state: RootState) => state.moviesReducer[category]);
+	const dispatch = useDispatch();
 
-	// if (loading)
-	// 	return (
-	// 		<>
-	// 			<h2>{title}</h2>
-	// 			<p>Loading movies...</p>
-	// 		</>
-	// 	);
+	useEffect(() => {
+		if (movies.length == 0) dispatch({ type: actionTypes[category], page: 1 });
+	}, []);
+
 	if (error)
 		return (
 			<>
@@ -30,7 +27,7 @@ const Category: FC<Props> = ({ title, category }) => {
 			</>
 		);
 
-	return (
+	return movies.length > 0 ? (
 		<St.CategoryWrapper>
 			<Title>{title}</Title>
 			{movies.length > 0 && (
@@ -40,11 +37,10 @@ const Category: FC<Props> = ({ title, category }) => {
 							<Movie key={movie.id} movie={movie} />
 						))}
 					</St.MoviesWrapper>
-					{/* <Pagination action={actionTypes[category]} category={category} /> */}
 				</>
 			)}
 		</St.CategoryWrapper>
-	);
+	) : null;
 };
 
 export default Category;
