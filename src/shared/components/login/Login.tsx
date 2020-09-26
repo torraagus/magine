@@ -36,14 +36,13 @@ const Login: React.FC<Props> = ({ history }) => {
 	return (
 		<div
 			style={{
-				height: "100vh",
+				height: "70vh",
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
 				alignItems: "center",
 			}}
 		>
-			<h4 onClick={() => history.push("/")}>Moviar</h4>
 			<h1>Login</h1>
 			<form
 				onSubmit={(e) => handleOnSubmit(e)}
@@ -51,14 +50,66 @@ const Login: React.FC<Props> = ({ history }) => {
 					display: "flex",
 					flexDirection: "column",
 					border: "1px solid #ccc",
+					padding: ".5rem 1rem 2rem 1rem",
+					margin: "1rem 0 0 0",
+					backgroundColor: "white",
+					borderRadius: 15,
 				}}
 			>
-				<label>Username</label>
-				<input ref={inputRef} type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-				<label>Password</label>
-				<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-				<input type="submit" value="Login" />
-				<input type="button" value="Login as guest" onClick={loginAsGuest} />
+				<h4
+					style={{ color: colors.primary, letterSpacing: 3, textAlign: "center", margin: "1rem 0 0 0" }}
+					onClick={() => history.push("/")}
+				>
+					Moviar
+				</h4>
+				<label style={{ margin: "1rem 0 .5rem 0", letterSpacing: 2 }}>
+					<small>Username</small>
+				</label>
+				<input
+					style={{ height: 40, width: 200, border: `1px solid #ccc`, borderRadius: 10, textIndent: ".5rem" }}
+					ref={inputRef}
+					type="text"
+					value={username}
+					placeholder="Your username..."
+					onChange={(e) => setUsername(e.target.value)}
+				/>
+				<label style={{ margin: "1rem 0 .5rem 0", letterSpacing: 2 }}>
+					<small>Password</small>
+				</label>
+				<input
+					style={{ height: 40, width: 200, border: `1px solid #ccc`, borderRadius: 10, textIndent: ".5rem" }}
+					type="password"
+					value={password}
+					onChange={(e) => setPassword(e.target.value)}
+				/>
+				<input
+					style={{
+						height: 40,
+						width: 200,
+						border: `1px solid ${colors.primary}`,
+						backgroundColor: colors.primary,
+						margin: "1rem 0 .25rem 0",
+						color: colors.terciary,
+						fontWeight: "bold",
+						borderRadius: 10,
+					}}
+					type="submit"
+					value="Login"
+				/>
+				<input
+					style={{
+						height: 40,
+						width: 200,
+						border: `1px solid ${colors.secondary}`,
+						backgroundColor: colors.secondary,
+						color: colors.terciary,
+						fontWeight: "bold",
+						borderRadius: 10,
+					}}
+					type="button"
+					value="Login as guest"
+					onClick={loginAsGuest}
+				/>
 			</form>
 			{error && <p style={{ color: "red" }}>{error}</p>}
 		</div>
