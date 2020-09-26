@@ -23,7 +23,7 @@ const INITIAL_STATE: IState = {
 	error: null,
 };
 
-const userReducer = (state: IState = INITIAL_STATE, action: IAction) => {
+const loginReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	const { type, session_id, error, username } = action;
 
 	switch (type) {
@@ -60,4 +60,4 @@ const userReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	}
 };
 
-export default userReducer;
+export default loginReducer;

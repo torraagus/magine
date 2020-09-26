@@ -3,6 +3,7 @@ import SelectedMovie from "./components/selectedMovie/SelectedMovie";
 import Login from "./components/login/Login";
 import Profile from "./components/profile/Profile";
 import Movies from "./components/movies/Movies";
+import SearchResults from "./components/searchResults/SearchResults";
 
 export interface IRoute {
 	path: string;
@@ -53,6 +54,10 @@ const routes: Routes = [
 		component: Movies,
 		title: "Upcoming",
 		category: "upcoming",
+	},
+	{
+		path: "/search",
+		component: SearchResults,
 	},
 ];
 

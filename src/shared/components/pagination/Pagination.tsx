@@ -1,19 +1,20 @@
 import React, { FC } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { colors } from "../../../browser/styles/colors";
-import { RootState } from "../../reducers/interface";
-
+import selectors from "./selectors";
 interface Props {
 	action: string;
-	category: string;
+	selector: string;
+	args?: {};
 }
 
-const Pagination: FC<Props> = ({ action, category }) => {
-	const { page, total_pages } = useSelector((state: RootState) => state.moviesReducer[category]);
+const Pagination: FC<Props> = ({ action, args, selector }) => {
+	const { page, total_pages } = selectors()[selector];
 	const dispatch = useDispatch();
 
 	return (
 		<div style={{ display: "flex", margin: "1rem 0 1rem 0" }}>
+			{/* {console.log({ type: action, args, page: 1 })} */}
 			<button
 				style={{
 					padding: ".25rem 1rem .25rem 1rem",
@@ -26,7 +27,7 @@ const Pagination: FC<Props> = ({ action, category }) => {
 					marginRight: ".25rem",
 				}}
 				disabled={page == 1}
-				onClick={() => dispatch({ type: action, page: 1 })}
+				onClick={() => dispatch({ type: action, ...args, page: 1 })}
 			>
 				First
 			</button>
@@ -41,7 +42,7 @@ const Pagination: FC<Props> = ({ action, category }) => {
 					outline: "none",
 				}}
 				disabled={page == 1}
-				onClick={() => dispatch({ type: action, page: page - 1 })}
+				onClick={() => dispatch({ type: action, ...args, page: page - 1 })}
 			>
 				Prev
 			</button>
@@ -59,7 +60,7 @@ const Pagination: FC<Props> = ({ action, category }) => {
 					borderRadius: "0 10px 10px 0",
 					outline: "none",
 				}}
-				onClick={() => dispatch({ type: action, page: page + 1 })}
+				onClick={() => dispatch({ type: action, ...args, page: page + 1 })}
 			>
 				Next
 			</button>
@@ -75,7 +76,7 @@ const Pagination: FC<Props> = ({ action, category }) => {
 					marginLeft: ".25rem",
 				}}
 				disabled={page == total_pages}
-				onClick={() => dispatch({ type: action, page: total_pages })}
+				onClick={() => dispatch({ type: action, ...args, page: total_pages })}
 			>
 				Last
 			</button>

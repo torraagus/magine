@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import routes from "./routes";
 import NoMatch from "./components/noMatch/NoMatch";
 import NavBar from "./components/navBar/Navbar";
@@ -6,9 +6,11 @@ import LoadingBar from "react-top-loading-bar";
 import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./reducers/interface";
+import SearchBar from "./components/searchBar/SearchBar";
 
 const App: React.FC = (): JSX.Element => {
 	const { progress, color } = useSelector((state: RootState) => state.loadingBarReducer);
+	const [isSearching, setIsSearching] = useState<boolean>(false);
 
 	return (
 		<>
@@ -21,7 +23,8 @@ const App: React.FC = (): JSX.Element => {
 						exact={exact}
 						render={(props) => (
 							<>
-								{!noNavBar && <NavBar />}
+								{isSearching && <SearchBar onClose={() => setIsSearching(false)} />}
+								{!noNavBar && !isSearching && <NavBar onSearch={() => setIsSearching(true)} />}
 								<C {...props} {...rest} />
 							</>
 						)}

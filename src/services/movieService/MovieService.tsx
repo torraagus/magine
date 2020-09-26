@@ -22,7 +22,7 @@ const fetchPopularMovies = async (page) => {
 	return data;
 };
 
-const fetchUpcomingMovies = async (page) => {
+const fetchUpcomingMovies = async (page: number) => {
 	const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=${page}`;
 	const response = await fetch(url);
 	const data = await response.json();
@@ -32,12 +32,22 @@ const fetchUpcomingMovies = async (page) => {
 	return data;
 };
 
-const fetchMovie = async (id) => {
+const fetchMovie = async (id: string) => {
 	const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
 	const response = await fetch(url);
 	const data = await response.json();
 
 	if (data.success !== undefined && !data.success) throw new Error(data.status_message);
+
+	return data;
+};
+
+const searchMovies = async (query: string, page: number) => {
+	const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`;
+	const response = await fetch(url);
+	const data = await response.json();
+
+	if (!data.results) throw new Error(data.status_message);
 
 	return data;
 };
@@ -75,4 +85,4 @@ export const fetchRecommendations = (params) => {
 		});
 };
 
-export default { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovie };
+export default { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovie, searchMovies };

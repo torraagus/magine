@@ -1,5 +1,11 @@
 import { all, takeLatest } from "redux-saga/effects";
-import { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovie } from "./movies.saga";
+import {
+	fetchNowPlayingMovies,
+	fetchPopularMovies,
+	fetchUpcomingMovies,
+	fetchMovie,
+	searchMovies,
+} from "./movies.saga";
 import { guestLogin, userLogin, logout, rateMovie, removeVote, fetchRatedMovies } from "./user.saga";
 
 function* watchAll() {
@@ -17,8 +23,10 @@ function* watchAll() {
 
 		takeLatest("MOVIE_VOTE_REQUESTED", rateMovie),
 		takeLatest("REMOVE_MOVIE_VOTE_REQUESTED", removeVote),
-
 		takeLatest("RATED_MOVIES_FETCH_REQUESTED", fetchRatedMovies),
+
+		// Search
+		takeLatest("SEARCH_MOVIES_FETCH_REQUESTED", searchMovies),
 	]);
 }
 

@@ -41,13 +41,13 @@ const Movies: FC<Props> = ({ category, title }) => {
 			}}
 		>
 			<h1 style={{ color: colors.secondary }}>{title}</h1>
-			<Pagination action={actionTypes[category]} category={category} />
+			<Pagination action={actionTypes[category]} selector={category} />
 			<div style={{ display: "flex", width: "70%", flexWrap: "wrap", margin: "1rem", justifyContent: "center" }}>
 				{movies.map((movie: IMovie) => (
 					<Movie key={movie.id} movie={movie} />
 				))}
 			</div>
-			<Pagination action={actionTypes[category]} category={category} />
+			<Pagination action={actionTypes[category]} selector={category} />
 		</div>
 	);
 };

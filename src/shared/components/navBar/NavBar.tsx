@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav, Logo, BlackScreen } from "./navBar.styles";
+import { Nav, Logo, BlackScreen, SearchIcon } from "./navBar.styles";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import BurguerMenu from "../burguerMenu/BurguerMenu";
 import { colors } from "../../../browser/styles/colors";
@@ -8,11 +8,10 @@ import { useSelector } from "react-redux";
 import items from "../navMenu/items";
 
 type Props = {
-	history: RouteComponentProps["history"];
-	location: RouteComponentProps["location"];
+	onSearch: () => void;
 };
 
-const NavBar: React.FC<Props> = ({ history }) => {
+const NavBar: React.FC<RouteComponentProps<any> & Props> = ({ history, onSearch }) => {
 	const { isLoggedIn, username } = useSelector((state: RootState) => state.loginReducer);
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -20,28 +19,31 @@ const NavBar: React.FC<Props> = ({ history }) => {
 		<>
 			<BlackScreen show={isOpen} onClick={() => setIsOpen(false)} />
 			<Nav>
-				<Logo onClick={() => history.push("/")}>Moviar</Logo>
-				<div style={{ display: "flex" }}>
-					{items.map((item) => (
-						<p key={item.name} style={{ padding: ".5rem" }} onClick={() => history.push(item.path)}>
-							{item.name}
-						</p>
-					))}
-					<button
-						style={{
-							width: 100,
-							outline: "none",
-							backgroundColor: colors.primary,
-							color: "white",
-							border: "none",
-							fontWeight: "bold",
-							borderRadius: 15,
-						}}
-						onClick={() => history.push(`${isLoggedIn ? "/Profile" : "/login"}`)}
-					>
-						{isLoggedIn ? `Hi ${username}` : "Login"}
-					</button>
-					<BurguerMenu isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+				<div style={{ width: "70%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+					<Logo onClick={() => history.push("/")}>Moviar</Logo>
+					<div style={{ display: "flex" }}>
+						{items.map((item) => (
+							<p key={item.name} style={{ padding: ".5rem" }} onClick={() => history.push(item.path)}>
+								{item.name}
+							</p>
+						))}
+						<SearchIcon onClick={onSearch} />
+						<button
+							style={{
+								width: 100,
+								outline: "none",
+								backgroundColor: colors.primary,
+								color: "white",
+								border: "none",
+								fontWeight: "bold",
+								borderRadius: 15,
+							}}
+							onClick={() => history.push(`${isLoggedIn ? "/Profile" : "/login"}`)}
+						>
+							{isLoggedIn ? `Hi ${username}` : "Login"}
+						</button>
+						<BurguerMenu isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+					</div>
 				</div>
 			</Nav>
 		</>

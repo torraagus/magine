@@ -18,7 +18,7 @@ const INITIAL_STATE: IState = {
 	ratedMovies: [],
 };
 
-const userReducer = (state: IState = INITIAL_STATE, action: IAction) => {
+const ratedMoviesReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	const { type, error, ratedMovie, rating, ratedMovies } = action;
 
 	switch (type) {
@@ -46,4 +46,4 @@ const userReducer = (state: IState = INITIAL_STATE, action: IAction) => {
 	}
 };
 
-export default userReducer;
+export default ratedMoviesReducer;

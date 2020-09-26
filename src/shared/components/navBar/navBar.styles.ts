@@ -1,9 +1,49 @@
 import styled from "styled-components";
 import { colors } from "../../../browser/styles/colors";
+import { BiSearch } from "react-icons/bi";
+import { RiCloseFill } from "react-icons/ri";
 
 interface BlackScreenProps {
 	show: boolean;
 }
+
+export const SearchIcon = styled(BiSearch)`
+	font-size: 24px;
+	padding: 0.5rem;
+	color: white;
+	border: none;
+	border-radius: 90px;
+	outline: none;
+	background-color: ${colors.primary};
+	margin: 0 0.5rem 0 0;
+
+	:hover {
+		cursor: pointer;
+		opacity: 75%;
+	}
+
+	:active {
+		cursor: pointer;
+		opacity: 90%;
+	}
+`;
+
+export const CloseIcon = styled(RiCloseFill)`
+	font-size: 24px;
+	padding: 0.5rem;
+	color: ${colors.light};
+
+	:hover {
+		cursor: pointer;
+		color: ${colors.primary};
+		opacity: 75%;
+	}
+
+	:active {
+		cursor: pointer;
+		opacity: 90%;
+	}
+`;
 
 export const Nav = styled.nav`
 	position: fixed;

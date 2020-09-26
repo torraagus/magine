@@ -17,7 +17,6 @@ const Profile: FC<Props> = ({ history }) => {
 
 	return isLoggedIn ? (
 		<div style={{ height: "100vh", display: "flex", justifyContent: "center" }}>
-			{/* {console.log(session_id, "in profile")} */}
 			<div style={{ width: "70vw", padding: "15vh 0 0 0" }}>
 				<div
 					style={{
