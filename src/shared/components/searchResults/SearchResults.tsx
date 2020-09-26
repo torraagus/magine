@@ -21,7 +21,9 @@ const SearchResults: FC<RouteComponentProps<any> & Props> = ({ location: { searc
 
 	return (
 		<div style={{ height: "100vh", display: "flex", justifyContent: "center" }}>
-			<div style={{ width: "70vw", padding: "15vh 0 0 0" }}>
+			<div
+				style={{ width: "70vw", padding: "15vh 0 0 0", display: "flex", flexDirection: "column", alignItems: "center" }}
+			>
 				<h1>Search</h1>
 				<i>
 					Results for keyword <b style={{ color: colors.primary }}>{search.substr(1)}</b>

@@ -1,5 +1,9 @@
 export default [
 	{
+		name: "Home",
+		path: "/",
+	},
+	{
 		name: "Now playing",
 		path: "/now-playing",
 	},
