@@ -44,6 +44,7 @@ const Login: React.FC<Props> = ({ history }) => {
 			}}
 		>
 			<h1>Login</h1>
+			{error && <p style={{ margin: ".5rem 0 0 0", color: "red" }}>{error}</p>}
 			<form
 				onSubmit={(e) => handleOnSubmit(e)}
 				style={{
@@ -120,7 +121,6 @@ const Login: React.FC<Props> = ({ history }) => {
 					onClick={loginAsGuest}
 				/>
 			</form>
-			{error && <p style={{ color: "red" }}>{error}</p>}
 		</div>
 	);
 };
