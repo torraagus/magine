@@ -9,6 +9,7 @@ import { colors } from "../../../browser/styles/colors";
 import util from "./utils";
 import Stars from "../stars/Stars";
 import { IMovie } from "../../reducers/movies.reducer";
+import MovieCast from "../movieCast/MovieCast";
 
 type Props = RouteComponentProps<any, {}>;
 
@@ -23,6 +24,7 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 	useEffect(() => {
 		const id = match.url.split("/").pop();
 		dispatch({ type: "MOVIE_FETCH_REQUESTED", id });
+		dispatch({ type: "MOVIE_CAST_FETCH_REQUESTED", id });
 		return () => {
 			dispatch({ type: "MOVIE_CLEAN" });
 		};
@@ -160,6 +162,7 @@ const SelectedMovie: FC<Props> = ({ match, history }) => {
 						</>
 					)}
 				</div>
+				<MovieCast />
 			</W.Main>
 		</>
 	) : null;

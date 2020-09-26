@@ -5,6 +5,7 @@ import {
 	fetchUpcomingMovies,
 	fetchMovie,
 	searchMovies,
+	fetchMovieCast,
 } from "./movies.saga";
 import { guestLogin, userLogin, logout, rateMovie, removeVote, fetchRatedMovies } from "./user.saga";
 
@@ -15,6 +16,7 @@ function* watchAll() {
 		takeLatest("POPULAR_MOVIES_FETCH_REQUESTED", fetchPopularMovies),
 		takeLatest("UPCOMING_MOVIES_FETCH_REQUESTED", fetchUpcomingMovies),
 		takeLatest("MOVIE_FETCH_REQUESTED", fetchMovie),
+		takeLatest("MOVIE_CAST_FETCH_REQUESTED", fetchMovieCast),
 
 		// User
 		takeLatest("GUEST_LOGIN_REQUESTED", guestLogin),

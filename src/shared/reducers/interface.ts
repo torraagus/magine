@@ -4,6 +4,7 @@ import { IState as ISelectedMovieState } from "./selectedMovie.reducer";
 import { IState as ILoginState } from "./login.reducer";
 import { IState as IRatedMoviesState } from "./ratedMovies.reducer";
 import { IState as ISearchMoviesState } from "./searchMovies.reducer";
+import { IState as IMovieCastState } from "./movieCast.reducer";
 
 export interface RootState {
 	moviesReducer: IMovieState;
@@ -12,4 +13,5 @@ export interface RootState {
 	loginReducer: ILoginState;
 	ratedMoviesReducer: IRatedMoviesState;
 	searchMoviesReducer: ISearchMoviesState;
+	movieCastReducer: IMovieCastState;
 }
