@@ -17,6 +17,10 @@ export const Container = styled.div`
 	flex-wrap: wrap;
 	margin: 1rem;
 	justify-content: center;
+
+	@media (max-width: 768px) {
+		width: 90%;
+	}
 `;
 export const Error = styled.p`
 	color: red;

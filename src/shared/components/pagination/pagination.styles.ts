@@ -8,7 +8,7 @@ interface IButton {
 }
 
 export const Button = styled.button<IButton>`
-	padding: 0.25rem 1rem 0.25rem 1rem;
+	padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 	background-color: ${colors.secondary};
 	color: white;
 	font-weight: bold;
@@ -16,6 +16,8 @@ export const Button = styled.button<IButton>`
 	outline: none;
 	margin-right: 0.25rem;
 	border: none;
+	display: flex;
+	align-items: center;
 
 	:active {
 		cursor: pointer;
@@ -34,7 +36,7 @@ export const Page = styled.p`
 	background: ${colors.primary};
 	color: white;
 	font-weight: bold;
-	padding: 0.25rem 2rem 0.25rem 2rem;
+	padding: 0.25rem 1rem 0.25rem 1rem;
 	margin-right: 0.25rem;
 `;
 

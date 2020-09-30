@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
 	:active {
 		opacity: 90%;
 	}
+
+	@media (max-width: 768px) {
+		max-width: 200px;
+	}
 `;
 
 export const Rating = styled.p`
@@ -26,6 +30,10 @@ export const Img = styled.img`
 	width: 150px;
 	border-radius: 15px;
 	margin: 0 0 0.5rem 0;
+
+	@media (max-width: 768px) {
+		width: 200px;
+	}
 `;
 
 export const Title = styled.p`

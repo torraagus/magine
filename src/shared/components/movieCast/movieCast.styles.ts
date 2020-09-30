@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 55vw;
+
+	@media (max-width: 768px) {
+		width: 90vw;
+	}
 `;
 export const Cast = styled.div`
 	margin: 1rem 0 0 0;

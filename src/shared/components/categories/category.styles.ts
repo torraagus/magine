@@ -9,6 +9,10 @@ export const Movies = styled.div`
 	display: flex;
 	overflow-x: auto;
 	padding: 0 0 1rem 0;
+
+	@media (max-width: 768px) {
+		width: 90vw;
+	}
 `;
 
 export const Wrapper = styled.div`

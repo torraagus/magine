@@ -45,7 +45,8 @@ const Main = styled.div<IMain>`
 	justify-content: ${({ vCenter }) => (vCenter ? "center" : "none")};
 	text-align: start;
 	background-color: ${({ bg }) => (bg ? bg : colors.terciary)};
-	height: ${({ height }) => (height ? `${height}vh` : "auto")};
+	/*height: ${({ height }) => (height ? `${height}vh` : "auto")};*/
+	height: fit-content;
 `;
 
 export default { Main };

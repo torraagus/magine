@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
-import selectors from "./selectors";
 import { Wrapper, FirstPageBtn, PrevPageBtn, NextPageBtn, LastPageBtn, Page } from "./pagination.styles";
+import selectors from "./selectors";
+import { FaStepForward, FaStepBackward, FaCaretLeft, FaCaretRight } from "react-icons/fa";
 interface Props {
 	action: string;
 	selector: string;
@@ -15,10 +16,10 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 	return (
 		<Wrapper>
 			<FirstPageBtn page={page} disabled={page == 1} onClick={() => dispatch({ type: action, ...args, page: 1 })}>
-				First
+				<FaStepBackward />
 			</FirstPageBtn>
 			<PrevPageBtn page={page} disabled={page == 1} onClick={() => dispatch({ type: action, ...args, page: page - 1 })}>
-				Prev
+				<FaCaretLeft size={20} />
 			</PrevPageBtn>
 			<Page>
 				{page}/{total_pages}
@@ -29,7 +30,7 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 				disabled={page == total_pages}
 				onClick={() => dispatch({ type: action, ...args, page: page + 1 })}
 			>
-				Next
+				<FaCaretRight size={20} />
 			</NextPageBtn>
 			<LastPageBtn
 				page={page}
@@ -37,7 +38,7 @@ const Pagination: FC<Props> = ({ action, args, selector }) => {
 				disabled={page == total_pages}
 				onClick={() => dispatch({ type: action, ...args, page: total_pages })}
 			>
-				Last
+				<FaStepForward />
 			</LastPageBtn>
 		</Wrapper>
 	);

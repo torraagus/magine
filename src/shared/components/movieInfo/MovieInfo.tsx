@@ -15,9 +15,11 @@ const MovieInfo: FC<Props> = ({ movie }) => {
 				<St.Title>{movie.title}</St.Title>
 				<St.SubTitleWrapper>
 					<St.ReleaseDate>{movie.release_date}</St.ReleaseDate>
-					{movie.genres.map((genre) => (
-						<St.Genre key={genre.id}>{genre.name}</St.Genre>
-					))}
+					<St.Genres>
+						{movie.genres.map((genre) => (
+							<St.Genre key={genre.id}>{genre.name}</St.Genre>
+						))}
+					</St.Genres>
 					<St.Runtime>{utils.formatRuntime(movie.runtime)}</St.Runtime>
 				</St.SubTitleWrapper>
 				<St.ScoreWrapper>
