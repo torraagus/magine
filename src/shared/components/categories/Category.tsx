@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../reducers/interface";
 import actionTypes from "../../sagas/actionTypes";
 import Movie from "../movie/Movie";
-import St from "../../styles/wrappers";
-import { Title } from "./category.styles";
+import { Title, Movies, Wrapper, Error } from "./category.styles";
+import { IMovie } from "../../reducers/movies.reducer";
 
 interface Props {
 	title: string;
@@ -23,23 +23,23 @@ const Category: FC<Props> = ({ title, category }) => {
 		return (
 			<>
 				<Title>{title}</Title>
-				<p style={{ color: "red" }}>Error: {error}</p>
+				<Error>Error: {error}</Error>
 			</>
 		);
 
 	return movies.length > 0 ? (
-		<St.CategoryWrapper>
+		<Wrapper>
 			<Title>{title}</Title>
 			{movies.length > 0 && (
 				<>
-					<St.MoviesWrapper>
-						{movies.map((movie) => (
+					<Movies>
+						{movies.map((movie: IMovie) => (
 							<Movie key={movie.id} movie={movie} />
 						))}
-					</St.MoviesWrapper>
+					</Movies>
 				</>
 			)}
-		</St.CategoryWrapper>
+		</Wrapper>
 	) : null;
 };
 

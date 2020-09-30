@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../browser/styles/colors";
 
-const Movie = styled.div`
+/*const Movie = styled.div`
 	max-width: 150px;
 	display: flex;
 	flex-direction: column;
@@ -27,7 +27,7 @@ const MoviesWrapper = styled.div`
 const CategoryWrapper = styled.div`
 	text-align: start;
 	margin: 2rem 0 0 0;
-`;
+`;*/
 
 interface IMain {
 	bg?: string;
@@ -39,16 +39,13 @@ interface IMain {
 const Main = styled.div<IMain>`
 	width: -webkit-fill-available;
 	padding-top: ${({ isFirst }) => (isFirst ? "8vh" : "0")};
-	/* position: absolute;
-	top: 8vh; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: ${({ vCenter }) => (vCenter ? "center" : "none")};
 	text-align: start;
-	/* height: ${({ height }) => (height ? `${height}vh` : "30vh")}; */
-
 	background-color: ${({ bg }) => (bg ? bg : colors.terciary)};
+	height: ${({ height }) => (height ? `${height}vh` : "auto")};
 `;
 
-export default { MoviesWrapper, CategoryWrapper, Movie, Main };
+export default { Main };

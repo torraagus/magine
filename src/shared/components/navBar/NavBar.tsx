@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav, Logo, BlackScreen, SearchIcon } from "./navBar.styles";
+import { Nav, Logo, BlackScreen, SearchIcon, MenuItem, Wrapper, Button, Menu } from "./navBar.styles";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import BurguerMenu from "../burguerMenu/BurguerMenu";
 import { colors } from "../../../browser/styles/colors";
@@ -18,34 +18,23 @@ const NavBar: React.FC<RouteComponentProps<any> & Props> = ({ history, onSearch 
 	return (
 		<>
 			<BlackScreen show={isOpen} onClick={() => setIsOpen(false)} />
-			<Nav>
-				<div style={{ width: "70%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+			<Wrapper>
+				<Nav>
 					<Logo onClick={() => history.push("/")}>Moviar</Logo>
-					<div style={{ display: "flex" }}>
+					<Menu>
 						{items.map((item) => (
-							<p key={item.name} style={{ padding: ".5rem" }} onClick={() => history.push(item.path)}>
+							<MenuItem key={item.name} onClick={() => history.push(item.path)}>
 								{item.name}
-							</p>
+							</MenuItem>
 						))}
 						<SearchIcon onClick={onSearch} />
-						<button
-							style={{
-								width: 100,
-								outline: "none",
-								backgroundColor: colors.primary,
-								color: "white",
-								border: "none",
-								fontWeight: "bold",
-								borderRadius: 15,
-							}}
-							onClick={() => history.push(`${isLoggedIn ? "/Profile" : "/login"}`)}
-						>
+						<Button onClick={() => history.push(`${isLoggedIn ? "/Profile" : "/login"}`)}>
 							{isLoggedIn ? `Hi ${username}` : "Login"}
-						</button>
+						</Button>
 						<BurguerMenu isOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
-					</div>
-				</div>
-			</Nav>
+					</Menu>
+				</Nav>
+			</Wrapper>
 		</>
 	);
 };

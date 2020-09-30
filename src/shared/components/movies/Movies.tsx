@@ -6,7 +6,7 @@ import { IMovie } from "../../reducers/movies.reducer";
 import actionTypes from "../../sagas/actionTypes";
 import Movie from "../movie/Movie";
 import Pagination from "../pagination/Pagination";
-
+import { Wrapper, Title, Container, Error } from "./movies.styles";
 interface Props {
 	category: string;
 	title: string;
@@ -20,60 +20,27 @@ const Movies: FC<Props> = ({ category, title }) => {
 		if (movies.length == 0) dispatch({ type: actionTypes[category], page: 1 });
 	}, []);
 
-	// if (loading)
-	// 	return (
-	// 		<div
-	// 			style={{
-	// 				display: "flex",
-	// 				padding: "10vh 0 0 0",
-	// 				flexDirection: "column",
-	// 				width: "-webkit-fill-available",
-	// 				alignItems: "center",
-	// 			}}
-	// 		>
-	// 			<h1 style={{ color: colors.primary }}>{title}</h1>
-	// 			<div style={{ display: "flex", width: "70%", flexWrap: "wrap", margin: "1rem", justifyContent: "center" }}>
-	// 				<p>Loading movies...</p>
-	// 			</div>
-	// 		</div>
-	// 	);
 	if (error)
 		return (
-			<div
-				style={{
-					display: "flex",
-					padding: "10vh 0 0 0",
-					flexDirection: "column",
-					width: "-webkit-fill-available",
-					alignItems: "center",
-				}}
-			>
-				<h1 style={{ color: colors.primary }}>{title}</h1>
-				<div style={{ display: "flex", width: "70%", flexWrap: "wrap", margin: "1rem", justifyContent: "center" }}>
-					<p style={{ color: "red" }}>Error: {error}</p>{" "}
-				</div>
-			</div>
+			<Wrapper>
+				<Title>{title}</Title>
+				<Container>
+					<Error>Error: {error}</Error>
+				</Container>
+			</Wrapper>
 		);
 
 	return movies.length > 0 ? (
-		<div
-			style={{
-				display: "flex",
-				padding: "10vh 0 0 0",
-				flexDirection: "column",
-				width: "-webkit-fill-available",
-				alignItems: "center",
-			}}
-		>
-			<h1 style={{ color: colors.primary }}>{title}</h1>
+		<Wrapper>
+			<Title>{title}</Title>
 			<Pagination action={actionTypes[category]} selector={category} />
-			<div style={{ display: "flex", width: "70%", flexWrap: "wrap", margin: "1rem", justifyContent: "center" }}>
+			<Container>
 				{movies.map((movie: IMovie) => (
 					<Movie key={movie.id} movie={movie} />
 				))}
-			</div>
+			</Container>
 			<Pagination action={actionTypes[category]} selector={category} />
-		</div>
+		</Wrapper>
 	) : null;
 };
 

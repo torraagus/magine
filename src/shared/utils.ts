@@ -1,6 +1,10 @@
-export function isEmpty(obj: {}) {
-	for (var key in obj) {
-		if (obj.hasOwnProperty(key)) return false;
+export function isEmpty(obj: {} | Array<any>) {
+	if (Array.isArray(obj)) {
+		if (obj.length > 0) return false;
+	} else {
+		for (var key in obj) {
+			if (obj.hasOwnProperty(key)) return false;
+		}
 	}
 	return true;
 }

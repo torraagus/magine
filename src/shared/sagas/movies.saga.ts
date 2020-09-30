@@ -45,7 +45,7 @@ function* fetchMovie(action) {
 	yield put({ type: "START_LOADING_BAR" });
 	yield put({ type: "MOVIE_WAITING_FETCH" });
 	try {
-		// yield delay(1500);
+		//yield delay(1500);
 		const result = yield call(MovieService.fetchMovie, action.id);
 		yield put({ type: "MOVIE_FETCH_SUCCEEDED", result });
 	} catch (e) {

@@ -1,28 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import styled from "styled-components";
-import { BsStarFill } from "react-icons/bs";
-import { colors } from "../../../browser/styles/colors";
-
-interface IStarIcon {
-	painted: boolean;
-	disabled: boolean;
-}
-
-const StarIcon = styled(BsStarFill)<IStarIcon>`
-	color: ${({ painted }) => (painted ? colors.primary : "#ccc")};
-	margin: 0 0.25rem 0 0.25rem;
-
-	:nth-child(1) {
-		margin: 0;
-	}
-
-	${({ disabled }) =>
-		!disabled &&
-		`:hover {
-		cursor: pointer;
-		color: ${colors.primary};
-	}`}
-`;
+import { Wrapper, StarIcon } from "./stars.styles";
 
 type Props = {
 	onVote?: (vote: number) => void;
@@ -56,9 +33,9 @@ const Stars: FC<Props> = ({ onVote, stars }) => {
 	}, [stars]);
 
 	return (
-		<div style={{ width: "fit-content" }} onMouseLeave={() => (!stars ? setSelected(-1) : setSelected(stars))}>
+		<Wrapper onMouseLeave={() => (!stars ? setSelected(-1) : setSelected(stars))}>
 			{container.map((star) => star)}
-		</div>
+		</Wrapper>
 	);
 };
 

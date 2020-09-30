@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { colors } from "../../../browser/styles/colors";
 import RatedMovies from "../ratedMovies/RatedMovies";
+import { Wrapper, Container, Header, Username, Logout } from "./profile.styles";
 
 type Props = RouteComponentProps<any>;
 
@@ -16,24 +17,15 @@ const Profile: FC<Props> = ({ history }) => {
 	}, [isLoggedIn]);
 
 	return isLoggedIn ? (
-		<div style={{ height: "100vh", display: "flex", justifyContent: "center" }}>
-			<div style={{ width: "70vw", padding: "15vh 0 0 0" }}>
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "center",
-						padding: "0 0 1rem 0",
-						margin: "0 0 1rem 0",
-						borderBottom: `1px solid ${colors.primary}`,
-					}}
-				>
-					<h1 style={{ letterSpacing: 3 }}>{username}</h1>
-					<p onClick={() => dispatch({ type: "USER_LOGOUT_REQUESTED" })}>Logout</p>
-				</div>
+		<Wrapper>
+			<Container>
+				<Header>
+					<Username>{username}</Username>
+					<Logout onClick={() => dispatch({ type: "USER_LOGOUT_REQUESTED" })}>Logout</Logout>
+				</Header>
 				<RatedMovies />
-			</div>
-		</div>
+			</Container>
+		</Wrapper>
 	) : null;
 };
 

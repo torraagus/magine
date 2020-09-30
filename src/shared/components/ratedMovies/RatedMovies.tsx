@@ -1,8 +1,9 @@
 import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { colors } from "../../../browser/styles/colors";
 import { RootState } from "../../reducers/interface";
 import Movie from "../movie/Movie";
+import { Error, NoData } from "./ratedMovies.styles";
+import Wrapper from "./RatedMoviesWrapper";
 
 type Props = {};
 
@@ -15,32 +16,14 @@ const RatedMovies: FC<Props> = () => {
 		dispatch({ type: "RATED_MOVIES_FETCH_REQUESTED", isGuest, session_id, username });
 	}, []);
 
-	if (error)
-		return (
-			<>
-				<h4 style={{ letterSpacing: 2, color: colors.primary }}>Rated movies</h4>
-				<div style={{ display: "flex", height: "100%", alignItems: "center", justifyContent: "center" }}>
-					<p style={{ color: "red" }}>{error}</p>
-				</div>
-			</>
-		);
-
 	return ratedMovies.length > 0 ? (
-		<div>
-			<h4 style={{ letterSpacing: 2, color: colors.primary }}>Rated movies</h4>
-			<div style={{ display: "flex", flexWrap: "wrap", margin: "1rem 0 0 0" }}>
-				{ratedMovies.map((movie) => (
-					<Movie movie={movie} />
-				))}
-			</div>
-		</div>
+		<Wrapper movies>
+			{ratedMovies.map((movie) => (
+				<Movie movie={movie} />
+			))}
+		</Wrapper>
 	) : (
-		<>
-			<h4 style={{ letterSpacing: 2, color: colors.primary }}>Rated movies</h4>
-			<div style={{ display: "flex", height: "70%", alignItems: "center", justifyContent: "center" }}>
-				<p>You dont have any rated movies</p>
-			</div>
-		</>
+		<Wrapper>{error ? <Error>{error}</Error> : <NoData>You dont have any rated movies</NoData>}</Wrapper>
 	);
 };
 

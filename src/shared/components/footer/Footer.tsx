@@ -1,15 +1,12 @@
 import React, { FC } from "react";
-import { colors } from "../../../browser/styles/colors";
+import { Wrapper, By, Name } from "./footer.styles";
 
 type Props = {};
 
 const Footer: FC<Props> = () => (
-	<div style={{ margin: "2rem 0 0 0", padding: "2rem", backgroundColor: colors.secondary, textAlign: "center" }}>
-		<p>
-			<i style={{ color: colors.terciary }}>Developed by</i>{" "}
-			<b style={{ color: colors.primary }}>Agustin Ignacio Torra</b>
-		</p>
-	</div>
+	<Wrapper>
+		<By>Developed by</By> <Name>Agustin Ignacio Torra</Name>
+	</Wrapper>
 );
 
 export default Footer;

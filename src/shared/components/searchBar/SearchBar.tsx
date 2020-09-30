@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import { Nav, Logo, SearchIcon, CloseIcon } from "../navBar/navBar.styles";
+import { Nav, Logo, SearchIcon, CloseIcon, Wrapper } from "../navBar/navBar.styles";
+import { Form, SearchInput } from "./searchBar.styles";
 
 type Props = {
 	onClose: () => void;
@@ -24,23 +25,22 @@ const SearchBar: FC<RouteComponentProps<any> & Props> = ({ onClose, history }) =
 	}, []);
 
 	return (
-		<Nav>
-			<div style={{ width: "70%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+		<Wrapper>
+			<Nav>
 				<Logo onClick={() => history.push("/")}>Moviar</Logo>
-				<form style={{ display: "flex" }} onSubmit={(e) => search(e)}>
+				<Form onSubmit={(e) => search(e)}>
 					<SearchIcon onClick={(e) => search(e)} />
-					<input
+					<SearchInput
 						ref={searchInput}
-						style={{ height: 40, width: 200, textIndent: ".5rem" }}
 						type="text"
 						placeholder={"Search for a movie..."}
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
 					/>
 					<CloseIcon onClick={onClose} />
-				</form>
-			</div>
-		</Nav>
+				</Form>
+			</Nav>
+		</Wrapper>
 	);
 };
 

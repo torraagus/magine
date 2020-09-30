@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Category from "../categories/Category";
-import W from "../../styles/wrappers";
+import { Wrapper } from "./home.styles";
 import Footer from "../footer/Footer";
 
 interface Props {}
@@ -8,11 +8,11 @@ interface Props {}
 const Home: FC<Props> = () => {
 	return (
 		<>
-			<W.Main isFirst height={30}>
+			<Wrapper>
 				<Category title={"Now playing"} category="nowPlaying" />
 				<Category title={"Popular"} category="popular" />
 				<Category title={"Upcoming"} category="upcoming" />
-			</W.Main>
+			</Wrapper>
 			<Footer />
 		</>
 	);

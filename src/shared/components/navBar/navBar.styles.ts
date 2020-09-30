@@ -45,7 +45,7 @@ export const CloseIcon = styled(RiCloseFill)`
 	}
 `;
 
-export const Nav = styled.nav`
+export const Wrapper = styled.div`
 	position: fixed;
 	width: 100vw;
 	display: flex;
@@ -103,6 +103,51 @@ export const Logo = styled.div`
 
 	:hover {
 		cursor: pointer;
+	}
+`;
+
+export const Nav = styled.nav`
+	width: 70%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
+
+export const Menu = styled.div`
+	display: flex;
+`;
+
+export const MenuItem = styled.div`
+	padding: 0.5rem;
+
+	:hover {
+		border-bottom: 2px solid ${colors.primary};
+		cursor: pointer;
+	}
+
+	:active {
+		opacity: 75%;
+		cursor: pointer;
+	}
+`;
+
+export const Button = styled.button`
+	width: 100px;
+	outline: none;
+	background-color: ${colors.primary};
+	color: white;
+	border: none;
+	font-weight: bold;
+	border-radius: 15px;
+
+	:hover {
+		cursor: pointer;
+		opacity: 75%;
+	}
+
+	:active {
+		cursor: pointer;
+		opacity: 90%;
 	}
 `;
 
