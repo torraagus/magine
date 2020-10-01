@@ -12,6 +12,13 @@ export const Container = styled.div<IContainer>`
 	justify-content: ${({ movies }) => (movies ? "flex-start" : "center")};
 	flex-wrap: ${({ movies }) => (movies ? "wrap" : "unset")};
 	margin: ${({ movies }) => (movies ? "1rem 0 0 0" : "0")};
+
+	@media (max-width: 768px) {
+		height: ${({ movies }) => (movies ? "auto" : "70%")};
+		flex-wrap: nowrap;
+		padding-bottom: 1rem;
+		overflow-x: auto;
+	}
 `;
 export const Title = styled.h4`
 	letter-spacing: 2;

@@ -3,25 +3,34 @@ import { colors } from "../../../browser/styles/colors";
 
 export const Wrapper = styled.div`
 	display: flex;
-	padding: 10vh 0 0 0;
 	flex-direction: column;
 	width: -webkit-fill-available;
 	align-items: center;
 `;
-export const Title = styled.h1`
-	color: ${colors.primary};
-`;
-export const Container = styled.div`
-	display: flex;
-	width: 70%;
-	flex-wrap: wrap;
-	margin: 1rem;
-	justify-content: center;
 
-	@media (max-width: 768px) {
+export const InnerWrapper = styled.div`
+	width: 70vw;
+	padding: 15vh 0 0 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@media (max-width: 1024px) {
 		width: 90%;
 	}
 `;
+
+export const Title = styled.h1`
+	color: ${colors.primary};
+`;
+
+export const Container = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1rem 0 0 0;
+	justify-content: center;
+`;
+
 export const Error = styled.p`
 	color: red;
 `;

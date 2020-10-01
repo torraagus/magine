@@ -7,9 +7,12 @@ const Wrapper = styled.div`
 	padding: 2rem 0 2rem 0;
 	color: white;
 
+	@media (max-width: 1024px) {
+		width: 90%;
+	}
+
 	@media (max-width: 768px) {
 		flex-direction: column;
-		width: 90%;
 	}
 `;
 
@@ -17,7 +20,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 0 0 0 2rem;
+	padding: 0 0 0 1rem;
 	width: 75%;
 
 	@media (max-width: 768px) {
@@ -29,7 +32,7 @@ const Container = styled.div`
 const SubTitleWrapper = styled.div`
 	display: flex;
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		flex-direction: column;
 	}
 `;
@@ -42,19 +45,21 @@ const Title = styled.p`
 const ReleaseDate = styled.p`
 	padding: 0 1rem 0 0;
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		padding: 0;
 	}
 `;
 
 const Genres = styled.div`
 	display: flex;
+	overflow-x: auto;
 `;
 
 const Genre = styled.p`
 	padding: 0 0.25rem 0 0.25rem;
+	min-width: max-content;
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		:nth-child(1) {
 			padding: 0;
 		}
@@ -63,8 +68,9 @@ const Genre = styled.p`
 
 const Runtime = styled.p`
 	padding: 0 0 0 1rem;
+	min-width: max-content;
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		padding: 0;
 	}
 `;
@@ -106,7 +112,7 @@ const Poster = styled.img`
 		width: 40%;
 	}
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		width: 60%;
 	}
 `;

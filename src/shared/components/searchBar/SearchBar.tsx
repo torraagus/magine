@@ -5,9 +5,10 @@ import { Form, SearchInput } from "./searchBar.styles";
 
 type Props = {
 	onClose: () => void;
+	width: number;
 };
 
-const SearchBar: FC<RouteComponentProps<any> & Props> = ({ onClose, history }) => {
+const SearchBar: FC<RouteComponentProps<any> & Props> = ({ onClose, history, width }) => {
 	const [query, setQuery] = useState<string>("");
 	const searchInput = useRef<HTMLInputElement>(null);
 
@@ -27,7 +28,7 @@ const SearchBar: FC<RouteComponentProps<any> & Props> = ({ onClose, history }) =
 	return (
 		<Wrapper>
 			<Nav>
-				<Logo onClick={() => history.push("/")}>Moviar</Logo>
+				{width > 768 && <Logo onClick={() => history.push("/")}>Moviar</Logo>}
 				<Form onSubmit={(e) => search(e)}>
 					<SearchIcon onClick={(e) => search(e)} />
 					<SearchInput

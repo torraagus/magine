@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 
+	@media (max-width: 1024px) {
+		width: 23vw;
+	}
+
 	@media (max-width: 768px) {
 		width: 90vw;
 		margin-left: 0;
@@ -20,8 +24,10 @@ export const Info = styled.div`
 `;
 export const Container = styled.div`
 	margin: 2rem 0 1rem 0;
+
 	@media (max-width: 768px) {
 		margin: 2rem 1rem 1rem 1rem;
+		min-width: max-content;
 	}
 `;
 export const Title = styled.h2``;

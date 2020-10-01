@@ -51,7 +51,7 @@ const info: Info[] = [
 			return arg !== "" ? (
 				<Value>
 					<a style={{ lineBreak: "anywhere" }} href={arg} target="blank">
-						{arg}
+						Go to page
 					</a>
 				</Value>
 			) : (

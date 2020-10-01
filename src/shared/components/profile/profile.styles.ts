@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
 	width: 70vw;
 	padding: 15vh 0 0 0;
+
+	@media (max-width: 1024px) {
+		width: 90vw;
+	}
 `;
 export const Header = styled.div`
 	display: flex;

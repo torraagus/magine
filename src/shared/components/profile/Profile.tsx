@@ -2,7 +2,6 @@ import React, { FC, useEffect } from "react";
 import { RootState } from "../../reducers/interface";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { colors } from "../../../browser/styles/colors";
 import RatedMovies from "../ratedMovies/RatedMovies";
 import { Wrapper, Container, Header, Username, Logout } from "./profile.styles";
 

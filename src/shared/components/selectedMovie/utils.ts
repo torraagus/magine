@@ -12,9 +12,11 @@ const formatLanguage = (lang: string) => {
 	switch (lang) {
 		case "en":
 			return "English";
+		case "es":
+			return "Spanish";
 
 		default:
-			break;
+			return lang;
 	}
 };
 

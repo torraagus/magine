@@ -38,7 +38,7 @@ interface IMain {
 
 const Main = styled.div<IMain>`
 	width: -webkit-fill-available;
-	padding-top: ${({ isFirst }) => (isFirst ? "8vh" : "0")};
+	padding-top: ${({ isFirst }) => (isFirst ? "10vh" : "0")};
 	display: flex;
 	flex-direction: column;
 	align-items: center;

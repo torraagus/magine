@@ -26,7 +26,7 @@ const MovieInfo: FC<Props> = ({ movie }) => {
 					<St.VoteAverage>{movie.vote_average}</St.VoteAverage>
 					<St.UserScore>User score</St.UserScore>
 				</St.ScoreWrapper>
-				<St.Tagline>{movie.tagline}</St.Tagline>
+				{movie.tagline && <St.Tagline>{movie.tagline}</St.Tagline>}
 				<St.OverviewTitle>Overview</St.OverviewTitle>
 				<St.OverviewValue>{movie.overview}</St.OverviewValue>
 			</St.Container>

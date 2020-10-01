@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 	border-radius: 10px;
 	margin: 1rem 0 0 0;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: 90%;
 	}
 
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 export const Button = styled.button<IButton>`
 	padding: 0.5rem 1rem 0.5rem 1rem;
 	border: none;
-	background-color: ${({ primary }) => (primary ? colors.primary : colors.secondary)};
+	background-color: ${({ primary }) => (primary ? colors.primary : "red")};
 	color: white;
 	border-radius: 10px;
 	outline: none;

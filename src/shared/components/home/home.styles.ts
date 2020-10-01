@@ -9,7 +9,7 @@ interface IWrapper {
 
 export const Wrapper = styled.div<IWrapper>`
 	width: -webkit-fill-available;
-	padding-top: 8vh;
+	padding-top: 10vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -7,10 +7,12 @@ import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./reducers/interface";
 import SearchBar from "./components/searchBar/SearchBar";
+import useWindowSize from "./hooks/useWindowHook";
 
 const App: React.FC = (): JSX.Element => {
 	const { progress, color } = useSelector((state: RootState) => state.loadingBarReducer);
-	const [isSearching, setIsSearching] = useState<boolean>(false);
+	const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
+	const { width } = useWindowSize();
 
 	return (
 		<>
@@ -23,8 +25,8 @@ const App: React.FC = (): JSX.Element => {
 						exact={exact}
 						render={(props) => (
 							<>
-								{isSearching && <SearchBar onClose={() => setIsSearching(false)} />}
-								{!noNavBar && !isSearching && <NavBar onSearch={() => setIsSearching(true)} />}
+								{searchBarActive && <SearchBar width={width} onClose={() => setSearchBarActive(false)} />}
+								{!noNavBar && !searchBarActive && <NavBar onSearch={() => setSearchBarActive(true)} />}
 								<C {...props} {...rest} />
 							</>
 						)}
