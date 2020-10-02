@@ -73,11 +73,14 @@ export const BlackScreen = styled.div<BlackScreenProps>`
 `;
 
 export const Logo = styled.div`
-	color: ${colors.primary};
+	color: ${colors.terciary};
 	font-weight: 900;
 	letter-spacing: 3px;
-	font-size: 18px;
+	font-size: 16px;
 	text-transform: uppercase;
+	padding: 0.25rem 1rem;
+	background-color: ${colors.primary};
+	border-radius: 10px;
 
 	:hover {
 		cursor: pointer;

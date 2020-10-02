@@ -4,7 +4,7 @@ import { colors } from "../../../browser/styles/colors";
 const Wrapper = styled.div`
 	display: flex;
 	width: 70%;
-	padding: 2rem 0 2rem 0;
+	padding: 1rem 0 2rem 0;
 	color: white;
 
 	@media (max-width: 1024px) {

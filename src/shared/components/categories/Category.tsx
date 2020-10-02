@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../reducers/interface";
 import actionTypes from "../../sagas/actionTypes";
 import Movie from "../movie/Movie";
-import { Title, Movies, Wrapper, Error } from "./category.styles";
+import { Title, Movies, Wrapper, Error, TitleW, EnterBtn } from "./category.styles";
 import { IMovie } from "../../reducers/movies.reducer";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import routes from "./routesByCategory";
 
 interface Props {
 	title: string;
 	category: string;
 }
 
-const Category: FC<Props> = ({ title, category }) => {
+const Category: FC<RouteComponentProps<any> & Props> = ({ title, category, history }) => {
 	const { movies, error } = useSelector((state: RootState) => state.moviesReducer[category]);
 	const dispatch = useDispatch();
 
@@ -29,7 +31,10 @@ const Category: FC<Props> = ({ title, category }) => {
 
 	return movies.length > 0 ? (
 		<Wrapper>
-			<Title>{title}</Title>
+			<TitleW>
+				<Title>{title}</Title>
+				<EnterBtn onClick={() => history.push(routes[category])}>See all</EnterBtn>
+			</TitleW>
 			{movies.length > 0 && (
 				<>
 					<Movies>
@@ -43,4 +48,4 @@ const Category: FC<Props> = ({ title, category }) => {
 	) : null;
 };
 
-export default Category;
+export default withRouter(Category);

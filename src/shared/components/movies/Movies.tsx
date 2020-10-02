@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../reducers/interface";
 import { IMovie } from "../../reducers/movies.reducer";
 import actionTypes from "../../sagas/actionTypes";
+import { isEmpty } from "../../utils";
 import Movie from "../movie/Movie";
 import { Error } from "./movies.styles";
 import MoviesW from "./MoviesWrapper";
@@ -21,9 +22,9 @@ const Movies: FC<Props> = ({ category, title }) => {
 
 	return (
 		<MoviesW title={title} pagination={movies.length > 0} category={category}>
-			{movies.length > 0 && movies.map((movie: IMovie) => <Movie key={movie.id} movie={movie} />)}
+			{!isEmpty(movies) && movies.map((movie: IMovie) => <Movie key={movie.id} movie={movie} />)}
 			{error && <Error>Error: {error}</Error>}
-			{!error && <p>Loading...</p>}
+			{!error && isEmpty(movies) && <p>Loading...</p>}
 		</MoviesW>
 	);
 };

@@ -2,14 +2,13 @@ import styled from "styled-components";
 import { colors } from "../../../browser/styles/colors";
 
 export const Wrapper = styled.div`
-	height: 100vh;
 	display: flex;
 	justify-content: center;
 `;
 
 export const Container = styled.div`
 	width: 70vw;
-	padding: 15vh 0 0 0;
+	padding: 12vh 0 0 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -23,10 +22,7 @@ export const Results = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	margin: 1rem 0 0 0;
-
-	@media (max-width: 768px) {
-		justify-content: center;
-	}
+	justify-content: center;
 `;
 
 export const Title = styled.h1``;

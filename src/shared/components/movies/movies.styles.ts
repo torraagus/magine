@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const InnerWrapper = styled.div`
 	width: 70vw;
-	padding: 15vh 0 0 0;
+	padding: 12vh 0 0 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
