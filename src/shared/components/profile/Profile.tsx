@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import RatedMovies from "../ratedMovies/RatedMovies";
 import { Wrapper, Container, Header, Username, Logout } from "./profile.styles";
+import BackButton from "../backButton/BackButton";
 
 type Props = RouteComponentProps<any>;
 
@@ -18,6 +19,7 @@ const Profile: FC<Props> = ({ history }) => {
 	return isLoggedIn ? (
 		<Wrapper>
 			<Container>
+				<BackButton />
 				<Header>
 					<Username>{username}</Username>
 					<Logout onClick={() => dispatch({ type: "USER_LOGOUT_REQUESTED" })}>Logout</Logout>

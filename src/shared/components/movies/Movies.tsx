@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../reducers/interface";
 import { IMovie } from "../../reducers/movies.reducer";
 import actionTypes from "../../sagas/actionTypes";
+import BackButton from "../backButton/BackButton";
 import Movie from "../movie/Movie";
 import Pagination from "../pagination/Pagination";
 import { Wrapper, Title, Container, Error, InnerWrapper } from "./movies.styles";
@@ -32,6 +33,7 @@ const Movies: FC<Props> = ({ category, title }) => {
 	return movies.length > 0 ? (
 		<Wrapper>
 			<InnerWrapper>
+				<BackButton />
 				<Title>{title}</Title>
 				<Pagination action={actionTypes[category]} selector={category} />
 				<Container>

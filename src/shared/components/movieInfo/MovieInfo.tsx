@@ -4,12 +4,14 @@ import { IMovie } from "../../reducers/movies.reducer";
 import Co from "../../constants/constants";
 import utils from "../selectedMovie/utils";
 import St from "./movieInfo.styles";
+import BackButton from "../backButton/BackButton";
 
 type Props = { movie: IMovie };
 
 const MovieInfo: FC<Props> = ({ movie }) => {
 	return (
 		<St.Wrapper>
+			<BackButton light />
 			<St.Poster src={`${Co.IMAGE_SRC_PREFIX}${movie.poster_path}`} />
 			<St.Container>
 				<St.Title>{movie.title}</St.Title>

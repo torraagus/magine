@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { colors } from "../../../browser/styles/colors";
 import { RootState } from "../../reducers/interface";
+import BackButton from "../backButton/BackButton";
 import Movie from "../movie/Movie";
 import Pagination from "../pagination/Pagination";
 import { Wrapper, Container, Results, Error, Title, Subtitle, Query } from "./searchResults.styles";
@@ -22,6 +23,7 @@ const SearchResults: FC<RouteComponentProps<any> & Props> = ({ location: { searc
 	return (
 		<Wrapper>
 			<Container>
+				<BackButton />
 				<Title>Search</Title>
 				<Subtitle>
 					{movies.length > 0 ? "Results for keyword" : "No results for keyword"} <Query>{search.substr(1)}</Query>

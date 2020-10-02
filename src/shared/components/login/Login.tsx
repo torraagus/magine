@@ -4,6 +4,7 @@ import { colors } from "../../../browser/styles/colors";
 import { RootState } from "../../reducers/interface";
 import { useSelector, useDispatch } from "react-redux";
 import { Wrapper, Form, Label, Input, UserLoginBtn, GuestLoginBtn, Header, Error, Brand } from "./login.styles";
+import BackButton from "../backButton/BackButton";
 
 type Props = {
 	history: RouteComponentProps["history"];
@@ -36,6 +37,7 @@ const Login: React.FC<Props> = ({ history }) => {
 
 	return (
 		<Wrapper>
+			<BackButton noNavBar />
 			<Header>Login</Header>
 			{error && <Error>{error}</Error>}
 			<Form onSubmit={(e) => handleOnSubmit(e)}>
