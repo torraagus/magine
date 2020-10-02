@@ -9,7 +9,6 @@ export interface IRoute {
 	path: string;
 	exact?: boolean;
 	component: any;
-	actions?: string[];
 	noNavBar?: boolean;
 	category?: string;
 	title?: string;
@@ -22,7 +21,6 @@ const routes: Routes = [
 		path: "/",
 		exact: true,
 		component: Home,
-		actions: ["NOW-PLAYING_MOVIES_FETCH_REQUESTED", "POPULAR_MOVIES_FETCH_REQUESTED"],
 	},
 	{
 		path: "/movies/id/:id",
