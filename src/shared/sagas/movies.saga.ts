@@ -79,4 +79,23 @@ function* searchMovies(action) {
 	yield put({ type: "FULL_LOADING_BAR" });
 }
 
-export { fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, fetchMovie, searchMovies, fetchMovieCast };
+function* fetchSimilarMovies(action) {
+	yield put({ type: "START_LOADING_BAR" });
+	try {
+		const movies = yield call(MovieService.fetchSimilarMovies, action.id);
+		yield put({ type: "SIMILAR_MOVIES_FETCH_SUCCEEDED", movies });
+	} catch (e) {
+		yield put({ type: "SIMILAR_MOVIES_FETCH_FAILED", error: e.message });
+	}
+	yield put({ type: "FULL_LOADING_BAR" });
+}
+
+export {
+	fetchNowPlayingMovies,
+	fetchPopularMovies,
+	fetchUpcomingMovies,
+	fetchMovie,
+	searchMovies,
+	fetchMovieCast,
+	fetchSimilarMovies,
+};

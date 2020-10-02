@@ -10,6 +10,7 @@ import SidebarMovieInfo from "../sidebarMovieInfo/SidebarMovieInfo";
 import RateMovie from "../rateMovie/RateMovie";
 import MovieInfo from "../movieInfo/MovieInfo";
 import { Wrapper, LeftWrapper, Loading, Error } from "./selectedMovie.styles";
+import SimilarMovies from "../similarMovies/SimilarMovies";
 
 type Props = RouteComponentProps<any, {}>;
 
@@ -21,10 +22,11 @@ const SelectedMovie: FC<Props> = ({ match }) => {
 		const id = match.url.split("/").pop();
 		dispatch({ type: "MOVIE_FETCH_REQUESTED", id });
 		dispatch({ type: "MOVIE_CAST_FETCH_REQUESTED", id });
+		dispatch({ type: "SIMILAR_MOVIES_FETCH_REQUESTED", id });
 		return () => {
 			dispatch({ type: "MOVIE_CLEAN" });
 		};
-	}, []);
+	}, [match.url]);
 
 	return movie ? (
 		<>
@@ -36,8 +38,7 @@ const SelectedMovie: FC<Props> = ({ match }) => {
 				<Wrapper>
 					<LeftWrapper>
 						<MovieCast />
-						<div>Similar movies</div>
-						<div>Recommended movies</div>
+						<SimilarMovies />
 					</LeftWrapper>
 					<SidebarMovieInfo movie={movie} />
 				</Wrapper>

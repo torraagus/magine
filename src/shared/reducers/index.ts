@@ -5,6 +5,7 @@ import loginReducer from "./login.reducer";
 import ratedMoviesReducer from "./ratedMovies.reducer";
 import searchMoviesReducer from "./searchMovies.reducer";
 import movieCastReducer from "./movieCast.reducer";
+import similarMoviesReducer from "./similarMovies.reducer";
 import { combineReducers } from "redux";
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
 	loginReducer,
 	ratedMoviesReducer,
 	searchMoviesReducer,
+	similarMoviesReducer,
 });
