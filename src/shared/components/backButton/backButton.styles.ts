@@ -17,7 +17,7 @@ export const Wrapper = styled.div<IWrapper>`
     `}
 
 	text-align: left;
-	width: 100%;
+	width: inherit;
 	color: ${({ light }) => (light ? colors.terciary : colors.secondary)};
 	font-size: 24px;
 	margin: 0 0 0.5rem 0;
