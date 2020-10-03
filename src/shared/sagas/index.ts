@@ -8,6 +8,7 @@ import {
 	fetchMovieCast,
 	fetchSimilarMovies,
 	fetchMovieKeywords,
+	fetchMovieReviews,
 } from "./movies.saga";
 import { guestLogin, userLogin, logout, rateMovie, removeVote, fetchRatedMovies } from "./user.saga";
 
@@ -21,6 +22,7 @@ function* watchAll() {
 		takeLatest("MOVIE_CAST_FETCH_REQUESTED", fetchMovieCast),
 		takeLatest("SIMILAR_MOVIES_FETCH_REQUESTED", fetchSimilarMovies),
 		takeLatest("MOVIE_KEYWORDS_FETCH_REQUESTED", fetchMovieKeywords),
+		takeLatest("MOVIE_REVIEWS_FETCH_REQUESTED", fetchMovieReviews),
 
 		// User
 		takeLatest("GUEST_LOGIN_REQUESTED", guestLogin),

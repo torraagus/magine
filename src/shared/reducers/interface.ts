@@ -7,6 +7,7 @@ import { IState as ISearchMoviesState } from "./searchMovies.reducer";
 import { IState as IMovieCastState } from "./movieCast.reducer";
 import { IState as ISimilarMoviesState } from "./similarMovies.reducer";
 import { IState as IMovieKeywordsState } from "./movieKeywords.reducer";
+import { IState as IReviewsState } from "./reviews.reducer";
 
 export interface RootState {
 	moviesReducer: IMovieState;
@@ -18,4 +19,5 @@ export interface RootState {
 	movieCastReducer: IMovieCastState;
 	similarMoviesReducer: ISimilarMoviesState;
 	movieKeywordsReducer: IMovieKeywordsState;
+	reviewsReducer: IReviewsState;
 }

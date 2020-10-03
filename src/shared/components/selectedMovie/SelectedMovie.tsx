@@ -12,6 +12,7 @@ import MovieInfo from "../movieInfo/MovieInfo";
 import { Wrapper, LeftWrapper, Loading, Error } from "./selectedMovie.styles";
 import SimilarMovies from "../similarMovies/SimilarMovies";
 import Keywords from "../keywords/Keywords";
+import Reviews from "../reviews/Reviews";
 
 type Props = RouteComponentProps<any, {}>;
 
@@ -25,6 +26,7 @@ const SelectedMovie: FC<Props> = ({ match }) => {
 		dispatch({ type: "MOVIE_CAST_FETCH_REQUESTED", id });
 		dispatch({ type: "SIMILAR_MOVIES_FETCH_REQUESTED", id });
 		dispatch({ type: "MOVIE_KEYWORDS_FETCH_REQUESTED", id });
+		dispatch({ type: "MOVIE_REVIEWS_FETCH_REQUESTED", id });
 		return () => {
 			dispatch({ type: "MOVIE_CLEAN" });
 		};
@@ -41,6 +43,7 @@ const SelectedMovie: FC<Props> = ({ match }) => {
 					<LeftWrapper>
 						<MovieCast />
 						<SimilarMovies />
+						<Reviews />
 					</LeftWrapper>
 					<div style={{ display: "flex", flexDirection: "column" }}>
 						<SidebarMovieInfo movie={movie} />

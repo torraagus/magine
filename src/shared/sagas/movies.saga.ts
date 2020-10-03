@@ -101,6 +101,17 @@ function* fetchMovieKeywords(action) {
 	yield put({ type: "FULL_LOADING_BAR" });
 }
 
+function* fetchMovieReviews(action) {
+	yield put({ type: "START_LOADING_BAR" });
+	try {
+		const reviews = yield call(MovieService.fetchMovieReviews, action.id);
+		yield put({ type: "MOVIE_REVIEWS_FETCH_SUCCEEDED", reviews });
+	} catch (e) {
+		yield put({ type: "MOVIE_REVIEWS_FETCH_FAILED", error: e.message });
+	}
+	yield put({ type: "FULL_LOADING_BAR" });
+}
+
 export {
 	fetchNowPlayingMovies,
 	fetchPopularMovies,
@@ -110,4 +121,5 @@ export {
 	fetchMovieCast,
 	fetchSimilarMovies,
 	fetchMovieKeywords,
+	fetchMovieReviews,
 };
