@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 	text-align: start;
-	margin: 2rem 0 2rem 0;
+	margin: 2rem 0 0 0;
 	display: flex;
 	flex-direction: column;
 	width: 55vw;

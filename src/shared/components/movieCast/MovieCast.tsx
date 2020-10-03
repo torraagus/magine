@@ -11,19 +11,17 @@ type Props = {};
 const MovieCast: FC<Props> = () => {
 	const { cast, error, loading } = useSelector((state: RootState) => state.movieCastReducer);
 
-	return (
+	return !isEmpty(cast) ? (
 		<Container>
-			{!isEmpty(cast) && (
-				<Cast>
-					{cast.map((member) => (
-						<CastMember key={member.id} member={member} />
-					))}
-				</Cast>
-			)}
+			<Cast>
+				{cast.map((member) => (
+					<CastMember key={member.id} member={member} />
+				))}
+			</Cast>
 			{error && <Error>{error}</Error>}
 			{loading && <Loading>Loading...</Loading>}
 		</Container>
-	);
+	) : null;
 };
 
 export default MovieCast;
