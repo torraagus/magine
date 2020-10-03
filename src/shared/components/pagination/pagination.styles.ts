@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { colors } from "../../../browser/styles/colors";
 
 interface IButton {
-	page?: number;
-	totalPages?: number;
 	disabled: boolean;
 }
 
@@ -12,24 +10,30 @@ export const Button = styled.button<IButton>`
 	background-color: ${colors.secondary};
 	color: white;
 	font-weight: bold;
-	border-radius: 10px 0 0 10px;
+	border-radius: 15px;
 	outline: none;
+	width: 30px;
+	text-align: center;
 	margin-right: 0.25rem;
 	border: none;
 	display: flex;
 	align-items: center;
 
-	:active {
-		cursor: pointer;
-		opacity: 90%;
-	}
-
 	${({ disabled }) =>
-		!disabled &&
-		`:hover {
+		!disabled
+			? `
+		opacity: 100%;	
+		:hover {
 			cursor: pointer;
 			opacity: 75%;
-		}`}
+		}
+		
+		:active {
+			cursor: pointer;
+			opacity: 90%;
+		}
+		`
+			: `opacity: 50%;`}
 `;
 
 export const Page = styled.p`
@@ -38,25 +42,7 @@ export const Page = styled.p`
 	font-weight: bold;
 	padding: 0.25rem 1rem 0.25rem 1rem;
 	margin-right: 0.25rem;
-`;
-
-export const FirstPageBtn = styled(Button)`
-	opacity: ${({ page }) => (page == 1 ? "50%" : "100%")};
-`;
-
-export const PrevPageBtn = styled(Button)`
-	opacity: ${({ page }) => (page == 1 ? "50%" : "100%")};
-	border-radius: 0;
-`;
-
-export const NextPageBtn = styled(Button)`
-	opacity: ${({ totalPages, page }) => (page == totalPages ? "50%" : "100%")};
-	border-radius: 0;
-`;
-
-export const LastPageBtn = styled(Button)`
-	opacity: ${({ totalPages, page }) => (page == totalPages ? "50%" : "100%")};
-	border-radius: 0 10px 10px 0;
+	border-radius: 15px;
 `;
 
 export const Wrapper = styled.div`
