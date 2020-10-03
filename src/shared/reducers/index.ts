@@ -6,6 +6,7 @@ import ratedMoviesReducer from "./ratedMovies.reducer";
 import searchMoviesReducer from "./searchMovies.reducer";
 import movieCastReducer from "./movieCast.reducer";
 import similarMoviesReducer from "./similarMovies.reducer";
+import movieKeywordsReducer from "./movieKeywords.reducer";
 import { combineReducers } from "redux";
 
 export default combineReducers({
@@ -17,4 +18,5 @@ export default combineReducers({
 	ratedMoviesReducer,
 	searchMoviesReducer,
 	similarMoviesReducer,
+	movieKeywordsReducer,
 });

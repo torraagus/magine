@@ -90,6 +90,17 @@ function* fetchSimilarMovies(action) {
 	yield put({ type: "FULL_LOADING_BAR" });
 }
 
+function* fetchMovieKeywords(action) {
+	yield put({ type: "START_LOADING_BAR" });
+	try {
+		const keywords = yield call(MovieService.fetchMovieKeywords, action.id);
+		yield put({ type: "MOVIE_KEYWORDS_FETCH_SUCCEEDED", keywords });
+	} catch (e) {
+		yield put({ type: "MOVIE_KEYWORDS_FETCH_FAILED", error: e.message });
+	}
+	yield put({ type: "FULL_LOADING_BAR" });
+}
+
 export {
 	fetchNowPlayingMovies,
 	fetchPopularMovies,
@@ -98,4 +109,5 @@ export {
 	searchMovies,
 	fetchMovieCast,
 	fetchSimilarMovies,
+	fetchMovieKeywords,
 };
