@@ -67,7 +67,6 @@ const fetchSimilarMovies = async (id: string) => {
 	const response = await fetch(url);
 	const data = await response.json();
 
-	console.log(data);
 	if (!data.results) throw new Error(data.status_message);
 
 	return data.results;
@@ -83,15 +82,14 @@ const fetchMovieKeywords = async (id: string) => {
 	return data.keywords;
 };
 
-export const fetchMovieReview = (params) => {
-	let url = `https://api.themoviedb.org/3/movie/${params.movieId}/reviews?api_key=${apiKey}&language=en-US&page=${params.page}`;
+const fetchMovieReviews = async (id: string) => {
+	let url = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`;
+	const response = await fetch(url);
+	const data = await response.json();
 
-	return fetch(url)
-		.then((res) => res.json())
-		.catch((err) => {
-			console.warn(err);
-			return null;
-		});
+	if (!data.results) throw new Error(data.status_message);
+
+	return data.results;
 };
 
 export const fetchRecommendations = (params) => {
@@ -114,4 +112,5 @@ export default {
 	fetchMovieCast,
 	fetchSimilarMovies,
 	fetchMovieKeywords,
+	fetchMovieReviews,
 };
