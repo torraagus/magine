@@ -7,11 +7,11 @@ const Wrapper = styled.div`
 	padding: 1rem 0 2rem 0;
 	color: white;
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1366px) {
 		width: 90%;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		flex-direction: column;
 	}
 `;
@@ -23,7 +23,7 @@ const Container = styled.div`
 	padding: 0 0 0 1rem;
 	width: 75%;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: 90%;
 		padding: 1rem 0 0 0;
 	}
@@ -108,7 +108,7 @@ const Poster = styled.img`
 	width: 25%;
 	border-radius: 15px;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: 40%;
 	}
 

@@ -15,7 +15,7 @@ export const InnerWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1366px) {
 		width: 90%;
 	}
 `;

@@ -22,11 +22,11 @@ export const Wrapper = styled.div<IWrapper>`
 	font-size: 24px;
 	margin: 1rem 0 0 0.5rem;
 
-	@media (min-width: 1024px) {
+	@media (min-width: 1366px) {
 		width: ${({ light }) => (light ? "70vw" : "inherit")};
 	}
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1366px) {
 		width: ${({ light }) => (light ? "90vw" : "inherit")};
 	}
 `;

@@ -5,7 +5,7 @@ import { SearchIcon, CloseIcon } from "../navBar/navBar.styles";
 export const Form = styled.form`
 	display: flex;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: 100%;
 	}
 
@@ -30,7 +30,7 @@ export const SearchInput = styled.input`
 		border: 1px solid ${colors.primary};
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: inherit;
 	}
 `;

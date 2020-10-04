@@ -9,7 +9,7 @@ export const Movies = styled.div`
 	overflow-x: auto;
 	padding: 0 0 1rem 0;
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1366px) {
 		width: 90vw;
 	}
 `;

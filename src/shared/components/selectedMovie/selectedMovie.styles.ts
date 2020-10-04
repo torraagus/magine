@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
 	display: flex;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		flex-direction: column-reverse;
 	}
 `;

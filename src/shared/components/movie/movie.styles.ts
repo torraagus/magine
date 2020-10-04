@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 		opacity: 90%;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		max-width: 200px;
 	}
 `;
@@ -31,7 +31,7 @@ export const Img = styled.img`
 	border-radius: 15px;
 	margin: 0 0 0.5rem 0;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: 200px;
 	}
 `;

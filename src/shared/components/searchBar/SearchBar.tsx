@@ -37,7 +37,7 @@ const SearchBar: FC<RouteComponentProps<any> & Props> = ({ onClose, history, wid
 			<BlackScreen show={isSearching} onClick={() => handleOnClose()} />
 			<Wrapper>
 				<Nav>
-					{width > 768 && <Logo onClick={() => history.push("/")}>Moviar</Logo>}
+					{width > 1024 && <Logo onClick={() => history.push("/")}>Moviar</Logo>}
 					<Form onSubmit={(e) => search(e)}>
 						<SearchIcon onClick={(e) => search(e)} />
 						<SearchInput

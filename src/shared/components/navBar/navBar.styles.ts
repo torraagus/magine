@@ -67,7 +67,7 @@ export const BlackScreen = styled.div<BlackScreenProps>`
 	width: 100vw;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 2;
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		display: ${({ show }) => (show ? "block" : "none")};
 	}
 `;
@@ -93,7 +93,7 @@ export const Nav = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1366px) {
 		width: 90%;
 	}
 `;
@@ -106,7 +106,7 @@ export const Menu = styled.ul`
 		transform: translateX(0%);
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		align-items: center;
 		flex-direction: column;
 		position: absolute;
@@ -138,7 +138,7 @@ export const MenuItem = styled.li`
 		cursor: pointer;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		padding: 1rem 0;
 		width: 100%;
 		border-bottom: 1px solid ${colors.terciary};
@@ -174,7 +174,7 @@ export const Button = styled.button`
 export const BtnsWrapper = styled.li`
 	display: flex;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		padding: 1rem 0;
 	}
 `;

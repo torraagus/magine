@@ -13,7 +13,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		width: 90vw;
 	}
 `;
