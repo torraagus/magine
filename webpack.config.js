@@ -5,15 +5,30 @@ const path = require("path"),
 	dotenv = require("dotenv");
 
 module.exports = () => {
-	const env = dotenv.config().parsed;
+	dotenv.config();
+	// console.log(env);
+	// console.log(process.env.TMDB_API_KEY);
+	// console.log(process.env);
+	// let envKeys = {
+	// 	...process.env,
+	// 	'process.env.TMDB_API_KEY': JSON.stringify(process.env.TMDB_API_KEY),
+	// 	'process.env.PORT': JSON.stringify(process.env.PORT),
+	// };
 
-	const envKeys = Object.keys(env).reduce((prev, next) => {
-		prev[`process.env.${next}`] = JSON.stringify(env[next]);
-		return prev;
-	}, {});
+	// console.log(envKeys, 'PRIMERO');
+	
+	// if (env) {
+	// 	envKeys = Object.keys(env).reduce((prev, next) => {
+	// 		prev[`process.env.${next}`] = JSON.stringify(env[next]);
+	// 		return prev;
+	// 	}, {});
+	// }
+	
+	// console.log(envKeys, 'SEGUNDO');
+
 
 	const browserConfig = {
-		mode: "development",
+		mode: process.env.NODE_ENV === "production" ? "production" : "development",
 		entry: path.resolve(__dirname, "src", "browser", "index.tsx"),
 		output: {
 			path: path.resolve(__dirname, "public"),
@@ -41,18 +56,15 @@ module.exports = () => {
 			extensions: [".tsx", ".ts", ".js"],
 		},
 		plugins: [
-			new webpack.DefinePlugin({
-				__isBrowser__: "true",
-			}),
+			new webpack.EnvironmentPlugin(["NODE_ENV", "TMDB_API_KEY"]),
 			new MiniCssExtractPlugin({
 				filename: "styles.css",
 			}),
-			new webpack.DefinePlugin(envKeys),
 		],
 	};
 
 	const serverConfig = {
-		mode: "development",
+		mode: process.env.NODE_ENV === "production" ? "production" : "development",
 		entry: path.resolve(__dirname, "src", "server", "index.tsx"),
 		target: "node",
 		externals: [nodeExternals()],
@@ -78,13 +90,8 @@ module.exports = () => {
 			extensions: [".tsx", ".ts", ".js"],
 		},
 		plugins: [
-			new webpack.DefinePlugin({
-				__isBrowser__: "false",
-			}),
-			new webpack.DefinePlugin(envKeys),
+			new webpack.EnvironmentPlugin(["NODE_ENV", "TMDB_API_KEY"]),
 		],
 	};
 	return [browserConfig, serverConfig];
 };
-
-// module.exports = [browserConfig, serverConfig];
