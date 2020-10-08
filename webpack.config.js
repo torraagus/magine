@@ -38,7 +38,7 @@ module.exports = () => {
 		module: {
 			rules: [
 				{
-					test: /\.tsx?$/,
+					test: /\.(tsx|ts)$/,
 					use: "babel-loader",
 					exclude: /node_modules/,
 				},
@@ -76,7 +76,7 @@ module.exports = () => {
 		module: {
 			rules: [
 				{
-					test: /\.tsx?$/,
+					test: /\.(tsx|ts)$/,
 					use: "babel-loader",
 					exclude: /node_modules/,
 				},
