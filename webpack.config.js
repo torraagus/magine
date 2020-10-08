@@ -53,7 +53,7 @@ module.exports = () => {
 			],
 		},
 		resolve: {
-			extensions: [".tsx", ".ts", ".js"],
+			extensions: [".ts", ".tsx", ".js"],
 		},
 		plugins: [
 			new webpack.EnvironmentPlugin(["NODE_ENV", "TMDB_API_KEY"]),
@@ -87,11 +87,9 @@ module.exports = () => {
 			],
 		},
 		resolve: {
-			extensions: [".tsx", ".ts", ".js"],
+			extensions: [".ts", ".tsx", ".js"],
 		},
-		plugins: [
-			new webpack.EnvironmentPlugin(["NODE_ENV", "TMDB_API_KEY"]),
-		],
+		plugins: [new webpack.EnvironmentPlugin(["NODE_ENV", "TMDB_API_KEY"])],
 	};
 	return [browserConfig, serverConfig];
 };
