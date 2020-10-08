@@ -6,7 +6,7 @@ import LoadingBar from "react-top-loading-bar";
 import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./reducers/interface";
-import SearchBar from "./components/searchbar/searchbar";
+import SearchBar from "./components/searchBar/SearchBar";
 import useWindowSize from "./hooks/useWindowHook";
 
 const App: React.FC = (): JSX.Element => {
