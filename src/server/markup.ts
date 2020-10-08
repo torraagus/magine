@@ -2,7 +2,7 @@ import serialize from "serialize-javascript";
 
 export const markup = (html, preloadedState) => {
 	const { title, styles, fonts } = {
-		title: "Movies",
+		title: "Moviar",
 		styles: "/styles.css",
 		fonts: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap",
 	};
@@ -15,7 +15,6 @@ export const markup = (html, preloadedState) => {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>${title}</title>
 			<link rel="stylesheet" type="text/css" href=${styles}>
-			<link href="" rel="stylesheet">
 		</head>
 		<body>
 			<div id="app">${html}</div>
