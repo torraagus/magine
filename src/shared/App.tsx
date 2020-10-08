@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import routes from "./routes";
 import NoMatch from "./components/noMatch/NoMatch";
-import NavBar from "./components/navBar/Navbar";
+import NavBar from "./components/navbar/navbar";
 import LoadingBar from "react-top-loading-bar";
 import { Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./reducers/interface";
-import SearchBar from "./components/searchBar/SearchBar";
+import SearchBar from "./components/searchbar/searchbar";
 import useWindowSize from "./hooks/useWindowHook";
 
 const App: React.FC = (): JSX.Element => {

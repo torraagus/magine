@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../../browser/styles/colors";
-import { SearchIcon, CloseIcon } from "../navBar/navbar.styles";
+import { SearchIcon, CloseIcon } from "../navbar/navbar.styles";
 
 export const Form = styled.form`
 	display: flex;
