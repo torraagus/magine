@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import { Nav, Logo, SearchIcon, CloseIcon, Wrapper, BlackScreen } from "../navBar/navbar.styles";
-import { Form, SearchInput } from "./searchBar.styles";
+import { Nav, Logo, SearchIcon, CloseIcon, Wrapper, BlackScreen } from "../navBar/navBar.styles";
+import { Form, SearchInput } from "./searchbar.styles";
 
 type Props = {
 	onClose: () => void;

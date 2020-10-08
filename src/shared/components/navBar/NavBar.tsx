@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Nav, Logo, BlackScreen, SearchIcon, MenuItem, Wrapper, Button, Menu, BtnsWrapper } from "./navbar.styles";
+import { Nav, Logo, BlackScreen, SearchIcon, MenuItem, Wrapper, Button, Menu, BtnsWrapper } from "./navBar.styles";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import BurguerMenu from "../burguerMenu/BurguerMenu";
 import { RootState } from "../../reducers/interface";
