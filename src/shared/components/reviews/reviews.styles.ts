@@ -29,6 +29,7 @@ export const ReadAll = styled.p`
 	margin: 1rem 0 0 0;
 	font-weight: bold;
 	color: ${colors.primary};
+	width: fit-content;
 
 	:hover {
 		cursor: pointer;

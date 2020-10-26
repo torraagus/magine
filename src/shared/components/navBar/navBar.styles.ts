@@ -52,7 +52,7 @@ export const Wrapper = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	background-color: white;
-	min-height: 10vh;
+	min-height: 60px;
 	z-index: 3;
 
 	-webkit-box-shadow: 10px 10px 5px 0px #651a1b31;
@@ -110,7 +110,7 @@ export const Menu = styled.ul`
 		align-items: center;
 		flex-direction: column;
 		position: absolute;
-		top: 10vh;
+		top: 60px;
 		right: 0;
 		height: 90vh;
 		width: 60%;

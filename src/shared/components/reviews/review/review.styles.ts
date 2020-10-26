@@ -12,9 +12,10 @@ export const Container = styled.div`
 	border-radius: 15px;
 `;
 export const Content = styled.p`
-	-webkit-user-modify: read-write-plaintext-only;
+	word-break: break-word;	
 `;
 export const Author = styled.a`
+	width: fit-content;
 	display: block;
 	margin: 1rem 0 1rem 0;
 	text-decoration: none;

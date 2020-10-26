@@ -31,7 +31,7 @@ async function handleRender(req, res) {
 	res.send(markup(html, initialState));
 }
 
-app.get("/favicon.ico", (req, res) => res.status(204));
+// app.get("/favicon.ico", (req, res) => res.status(204));
 
 app.listen(process.env.PORT || 3000, () => {
 	console.log(`Server is listening on port ${process.env.PORT ? process.env.PORT : 3000}`);
