@@ -6,13 +6,15 @@ type Props = {};
 const Footer: FC<Props> = () => (
   <Wrapper>
     <By>Developed by</By> <Name>Agustin Ignacio Torra</Name>
-    <a target="_blank" href="https://iconos8.es/icons/set/film-reel--v2">
-      Carrete de película icon
-    </a>{" "}
-    icono por{" "}
-    <a target="_blank" href="https://iconos8.es">
-      Icons8
-    </a>
+    <p style={{ color: "white" }}>
+      <a target="_blank" href="https://iconos8.es/icons/set/film-reel--v2">
+        Favicon
+      </a>{" "}
+      thanks to{" "}
+      <a target="_blank" href="https://iconos8.es">
+        Icons8
+      </a>
+    </p>
   </Wrapper>
 );
 
