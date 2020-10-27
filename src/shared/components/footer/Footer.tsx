@@ -1,20 +1,20 @@
 import React, { FC } from "react";
-import { Wrapper, By, Name } from "./footer.styles";
+import { Wrapper, By, Name, Reference, Link } from "./footer.styles";
 
 type Props = {};
 
 const Footer: FC<Props> = () => (
   <Wrapper>
     <By>Developed by</By> <Name>Agustin Ignacio Torra</Name>
-    <p style={{ color: "white" }}>
-      <a target="_blank" href="https://iconos8.es/icons/set/film-reel--v2">
+    <Reference>
+      <Link target="_blank" href="https://iconos8.es/icons/set/film-reel--v2">
         Favicon
-      </a>{" "}
+      </Link>{" "}
       thanks to{" "}
-      <a target="_blank" href="https://iconos8.es">
+      <Link target="_blank" href="https://iconos8.es">
         Icons8
-      </a>
-    </p>
+      </Link>
+    </Reference>
   </Wrapper>
 );
 
